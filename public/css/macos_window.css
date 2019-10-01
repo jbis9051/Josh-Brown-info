@@ -1,0 +1,341 @@
+/* ============= Code Window ========= Heavily adapted from https://codepen.io/JohJakob/pen/YPxgwo */
+.code_editor_wrapper {
+    font-family: HelveticaNeue, 'Helvetica Neue', 'Lucida Grande', Arial, sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    transform: scale(0.9);
+    transition: 500ms;
+    transition-delay: 100ms;
+    opacity: 0;
+}
+@media only screen and (max-width: 800px) {
+    .code_editor_wrapper {
+        width: 98%;
+    }
+}
+.code_editor_wrapper_scrolled {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.code_editor_window {
+    background: #2b2b2b;
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    margin: 12.5vh auto 2.5vh;
+    border: 1px solid #020202;
+    border-radius: 6px;
+}
+
+.code_editor_window .window_bar {
+    background: linear-gradient(top, #35383a, #3c3f41, #35383a);
+    background: -webkit-linear-gradient(top, #35383a, #3c3f41, #35383a);
+    color: #4d494d;
+    font-size: 11pt;
+    line-height: 30px;
+    text-align: center;
+    width: 100%;
+    height: 30px;
+    border-top: 1px solid #787878;
+    border-bottom: 1px solid #020202;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
+}
+
+.window_bar .language {
+    color: #aaaaaa;
+}
+
+/* CONTENT */
+.code_content {
+    cursor: text;
+    margin: 5%;
+    font-family: 'IBM Plex Mono', monospace;
+}
+.code_editor_window .tab_bar {
+    border: 1px solid #4e5051;
+    border-right: 0;
+    border-left: 0;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.tab_bar .tab {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    border: 1px solid #2c2d2e;
+    flex: 1;
+    background: #1a1b1c;
+    width: auto;
+    color: #f3f3f3;
+    font-size: 10pt;
+    line-height: 25px;
+    text-align: center;
+    user-select: none;
+    cursor: pointer;
+}
+.tab[active]{
+    border: 1px solid #3b3d3e;
+    background: #3b3d3e;
+}
+.tab_bar .tab:first-child {
+    border-left: 0;
+}
+.tab_bar .tab:last-child {
+    border-right: 0;
+}
+.code_content .tab_content {
+    display: none;
+}
+.code_content .tab_content[active] {
+    display: block;
+    opacity: 0;
+    animation: appear 700ms;
+    animation-fill-mode: forwards;
+}
+.tab_content[data-name="info_muggles"]{
+    font-family: 'Roboto',sans-serif;
+}
+.tab_content[data-name="info_muggles"] p{
+    font-size: 20px;
+}
+.tab_content[data-name="info_muggles"] ul{
+    list-style-type: none;
+    font-size: 20px;
+    margin-left: 0;
+    padding-left: 0;
+}
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+/*
+.code_content .tag {
+    display: block;
+    color: #CC7832;
+    font-weight: bolder;
+}
+
+.lang.php .line:after {
+    color: #CC7832;
+    content: ";";
+}
+
+.code_content .indent_1 {
+    margin-left: 8%;
+}
+
+.code_content .line {
+    display: block;
+}
+
+.code_content .string {
+    color: #617a52;
+}
+
+.code_content .string.single:before {
+    content: "'";
+}
+
+.code_content .string.single:after {
+    content: "'";
+}
+
+.code_content .string.double:before {
+    content: '"';
+}
+
+.code_content .string.double:after {
+    content: '"';
+}
+
+.string.array:before {
+    content: "['";
+    color: #9f9f9f
+}
+
+.string.array:after {
+    content: "']";
+    color: #9f9f9f
+}
+
+.comment {
+    color: #777777;
+}
+
+.comment.one:before {
+    content: "/* ";
+}
+
+.comment.one:after {
+    content: " *//*";
+}
+
+.comment.two:before {
+    content: "//";
+}
+
+.code_content .variable {
+    color: #9674A8;
+}
+
+.variable:after {
+    content: " = ";
+    color: #9f9f9f
+}
+
+.code_content .reg {
+    color: #9f9f9f
+}
+*/
+
+/* ========= prettify.js ========== https://github.com/google/code-prettify/blob/master/docs/getting_started.md*/
+/* PrismJS 1.15.0
+https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+javascript+applescript+bash+markup-templating+java+json+php+sql */
+/**
+ * prism.js Dark theme for JavaScript, CSS and HTML
+ * Based on the slides of the talk “/Reg(exp){2}lained/”
+ * @author Lea Verou
+ */
+
+code[class*="language-"],
+pre[class*="language-"] {
+    color: white;
+    font-family: 'IBM Plex Mono', Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
+
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+}
+
+@media print {
+    code[class*="language-"],
+    pre[class*="language-"] {
+        text-shadow: none;
+    }
+}
+
+/*
+pre[class*="language-"],
+:not(pre) > code[class*="language-"] {
+    background: hsl(30, 20%, 25%);
+}
+*/
+
+/* Code blocks */
+pre[class*="language-"] {
+    overflow: auto;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #777777;
+}
+
+.token.punctuation {
+    opacity: .7;
+}
+
+.namespace {
+    opacity: .7;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.language-java .token.class-name{
+    color: hsl(40, 73%, 66%);
+}
+
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #617a52;
+}
+.token.attr-name {
+    color: #bababa;
+}
+
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable,.language-java .token.function {
+    color: #9674A8;
+}
+.language-java {
+
+}
+.token.attr-value{
+    color: #a1bd5f;
+}
+
+.token.atrule,
+.token.selector,
+.token.keyword {
+    color: hsl(350, 40%, 70%);
+}
+
+.token.regex,
+.token.important {
+    font-weight: bolder;
+    color: #CC7832;
+}
+
+.token.important,
+.token.bold {
+    font-weight: bold;
+}
+.token.italic {
+    font-style: italic;
+}
+
+.token.entity {
+    cursor: help;
+}
+
+.token.deleted {
+    color: red;
+}

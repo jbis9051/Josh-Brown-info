@@ -1,0 +1,191 @@
+<!--
+
+
+
+Big thanks to....
+               ______           __   ____               _____
+              / __/ /____ _____/ /__/ __ \_  _____ ____/ _/ /__ _    __
+             _\ \/ __/ _ `/ __/  '_/ /_/ / |/ / -_) __/ _/ / _ \ |/|/ /
+            /___/\__/\_,_/\__/_/\_\\____/|___/\__/_/ /_//_/\___/__,__/
+
+for all of their help!
+
+Especially to:
+
+@TinyGiant -> https://stackoverflow.com/users/4639281/tiny-giant
+@DavidKamer -> https://stackoverflow.com/users/9260060/david-kamer
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta property="og:title" content="Josh Brown's Portfolio"/>
+  <meta property="og:image" content="https://joshbrown.info/media/images/thiswebsite/code_small.png"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:url" content="https://joshbrown.info"/>
+  <meta name="description"
+        content="Josh Brown's portfolio and resume site containing many of the past project he has been involved in.  The website also contains information on Josh Brown and how you can contact him.">
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/media/images/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/media/images/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/media/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/media/images/favicon/site.webmanifest">
+  <link rel="mask-icon" href="/media/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#00aba9">
+  <meta name="theme-color" content="#ffffff">
+  <!-- End Favicon -->
+  <title>Josh Brown's Portfolio</title>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"
+          integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+  <script src="js/onscroll_jquery_plugin.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/index.css">
+  <link type="text/css" rel="stylesheet" href="css/macos_window.css">
+  <link type="text/css" rel="stylesheet" href="css/demo_sites.css">
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<noscript class="nojs">Why no JavaScript?</noscript>
+<div class="load_text">Josh Brown</div>
+<div class="background">
+  <div class="page_wrapper">
+    <div class="controls">
+      <div class="hamburger_button"><span class="fa fa-bars"></span></div>
+      <div class="x_button"><span class="fa fa-close"></span></div>
+      <img alt="logo" class="nav_logo" src="media/images/thiswebsite/JB%20Logo.svg">
+      <div class="read_controls">
+                 <span data-tab="my_info" class="control_item"
+                       data-selected>About Me</span>
+        <span data-tab="resume_wrapper" id="portfolio"
+              class="control_item">Portfolio</span>
+        <span class="control_item" data-tab="professional-resume" id="resume">Professional Resume</span>
+        <!--span data-tab="demo_sites" id="demo_sites" class="control_item">Demo Sites</span-->
+        <span data-tab="contact_form" id="contact"
+              class="control_item">Contact</span>
+      </div>
+    </div>
+    <div class="content">
+      <!-- Info -->
+      <div active data-scroll="my_info" class="content_tab my_info fadeIn_1">
+        <div class="big_profile_title_wrapper">
+          <div class="big_profile_title"><h1>Who am I?</h1></div>
+          <div class="instructions_wrapper"><span class="instructions">Scroll</span><span
+                    class="fa fa-angle-down"></span></div>
+        </div>
+        <!-- class="profile_topic profile_third col_3">
+            <div class="profile_icon"><span class="fa fa-pencil"></span></div>
+            <div class="profile_topic_title">Editing Programs
+                <span class="profile_legal_text">In order of proficiency</span>
+            </div>
+            <ul>
+                <li>Adobe Photoshop</li>
+                <li>Adobe After Effects</li>
+                <li>Adobe Premiere Pro</li>
+                <li>Adobe Audition</li>
+                <li>Garage Band</li>
+                <li>Final Cut Pro</li>
+                <li>Gimp</li>
+            </ul>
+        </!-->
+        <div class="code_editor_wrapper">
+          <div class="code_editor_window">
+            <div class="code_content">
+              <div class="tab_content" active data-name="info">
+                <h1>Information</h1>
+                <ul>
+                  <li>Age: 16 Years Old</li>
+                  <li>Grade: 11th</li>
+                  <li>Education: Currently in High School</li>
+                  <li>Specialty: Cyber Security</li>
+                </ul>
+                <h1>Background</h1>
+                <p> My name is Josh Brown and I am currently in 11th Grade. My main interest is cyber
+                  security, specifically application security. I also do web development for fun and
+                  for practicing web security. I also like taking and editing photos and videos.</p>
+              </div>
+              <div class="tab_content" data-name="languages">
+                <h1>Technologies/Experience</h1>
+                <h3>Here are some of languages and technologies that I have experience with. I have varying degrees of
+                  experience with each item. See the Portfolio page for examples.</h3>
+                <ul>
+                  <li>Web (HTML/CSS/JavaScript/jQuery)</li>
+                  <li>Node.js (Electron, npm, yarn)</li>
+                  <li>AppleScript</li>
+                  <li>PHP</li>
+                  <li>Bash/CLI</li>
+                  <li>Java (JavaFX)</li>
+                  <li>Python</li>
+                </ul>
+                <h3>Here are some of the editing programs that I have experience with.</h3>
+                <ul>
+                  <li>Adobe Photoshop</li>
+                  <li>Adobe After Effects</li>
+                  <li>Adobe Premiere Pro</li>
+                  <li>Adobe Audition</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Resume Fun -->
+      <div class="content_tab resume_wrapper">
+        <%- include('resume'); %>
+      </div>
+      <!-- Prof Resume -->
+      <div class="content_tab professional-resume">
+        <%- include('professional_resume'); %>
+      </div>
+      <!-- Demo Sites -->
+      <!--<div class="content_tab demo_sites fadeIn_1">
+          <?php /*include 'demo_site_page.php'; */ ?>
+      </div>-->
+      <!-- Contact -->
+      <div class="content_tab contact_form fadeIn_1">
+        <%- include('contact_page'); %>
+      </div>
+    </div>
+  </div>
+  <div id="the_modal" class="modal_wrapper">
+    <div class="modal_content_wrapper">
+        <span
+                class="modal_close_button">&times;</span>
+      <div id="modal_content" class="modal_content">
+        <div class="site_info">
+          <h1>Josh Brown</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="game_modal" class="modal_wrapper">
+    <div class="game_content_wrapper">
+        <span
+                class="modal_close_button">&times;</span>
+      <div id="game_player" class="modal_content">
+
+      </div>
+    </div>
+  </div>
+  <div id="welcome_side_banner" class="welcome_side_banner_wrapper">
+    <div class="welcome_content">
+      <span class="modal_close_button">&times;</span>
+      <div class="welcome_message">
+        <p>Welcome to my personal website. This website contains most of the projects that I have been involved
+          in
+          or created. It is also self hosted. While I do have experience with other libraries/frameworks, this
+          website does not use any
+          with the exception of jQuery. All photos and
+          screenshots are original. Thanks!</p>
+      </div>
+    </div>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+</html>

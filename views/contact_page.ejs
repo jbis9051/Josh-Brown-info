@@ -1,0 +1,23 @@
+<div class="form_wrapper">
+    <form id="contact_form">
+        <h1>Contact Me</h1>
+        <h3 class="form_input_error"></h3>
+        <div class="name_one_line">
+            <input type="text" id="fname" name="fname" placeholder="First Name"><input id="lname" name="lname" type="text" placeholder="Last Name">
+        </div>
+        <input type="email" id="email" name="email" placeholder="Email Address">
+        <select id="reason" name="reason">
+            <option disabled selected>Reason for Inquiry</option>
+            <option value="employment">Employment</option>
+            <option value="questions">Questions</option>
+            <option value="suggestions">Suggestions</option>
+            <option value="other">Other</option>
+        </select>
+        <textarea placeholder="Message" name="message"></textarea>
+        <button id="validate_form_button" type="button" class="product_button form_submit_button">Send</button>
+        <input name="csrftoken" type="hidden" value="<?= $csrfToken ?? ''; ?>">
+    </form>
+    <div style="display: none" id="contact_form_thanks">
+        <p>Success! Thanks for your submission.</p>
+    </div>
+</div>

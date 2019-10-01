@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+
+.nav_bar_wrapper a {
+    color: inherit;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+html, body {
+    margin: 0;
+}
+
+.nav_bar_wrapper {
+    font-family: 'Cinzel', serif;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 500;
+    color: white;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.3);
+    height: 80px;
+    position: fixed;
+    top:0;
+    z-index: 99;
+}
+
+.nav_item, .nav_dropdown {
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.5vw;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+    text-shadow: 2px 2px rgba(0,0,0,0.3);
+}
+.nav_dropdown > div {
+    position: relative;
+}
+.nav_dropdown .nav_dropdown {
+    left: 100%;
+    top: 0;
+    padding: 0;
+}
+.nav_item[active] {
+    color: #e7e7e7;
+}
+
+.nav_item:hover.nav_dropdown div:hover {
+    color: #e7e7e7;
+}
+
+.big_logo_top {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.big_logo_top img {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+}
+
+.nav_dropdown {
+    display: none;
+    position: absolute;
+    height: auto;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.3);
+}
+
+.nav_dropdown div {
+    text-align: left;
+    box-sizing: border-box;
+    padding-left: 10px;
+}
+.nav_dropdown {
+    color: white;
+}
+.nav_item:hover, .nav_dropdown div:hover {
+    color: #e7e7e7;
+}
+
+.hamburger_button {
+    width: 100%;
+    display: none;
+    text-align: center;
+    font-size: 25px;
+    line-height: 60px;
+    color: white;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.6);
+    position: fixed;
+    top: 0;
+}
+@media only screen and (min-width: 701px) {
+    .nav_bar_wrapper div:hover > .nav_dropdown, .nav_bar_wrapper div:hover > .nav_dropdown:hover {
+        display: block;
+    }
+    .nav_bar_wrapper {
+        display: flex !important;
+    }
+}
+@media only screen and (max-width: 700px) {
+    .nav_dropdown {
+        box-shadow: 0 50px 20px rgba(0, 0, 0, 0.1);
+    }
+    .hamburger_button {
+        display: block;
+    }
+    .nav_bar_wrapper {
+        display: none;
+        height: auto;
+        top: 60px;
+        background: rgba(0,0,0,0.6);
+    }
+    .nav_dropdown {
+        position: static;
+    }
+    .nav_item, .nav_dropdown {
+        height: auto;
+    }
+    .nav_item {
+        font-size: 30px;
+    }
+}

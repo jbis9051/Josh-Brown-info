@@ -1,0 +1,36 @@
+body {
+    background: black;
+    color: white;
+    font-family: GoboldBold, sans-serif;
+    text-align: center;
+    line-height: 15px;
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.product_button {
+    background-color: rgba(46, 46, 46, 0.85);
+    text-decoration: none;
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
+}
+.product_button:hover {
+    transform: scale(1.2);
+    background: rgba(36, 36, 36, 0.85);
+}
+h1 {
+    font-size: 75px;
+}
+h2 {
+    line-height: 50px;
+}
+.nav_logo {
+    margin: 0 auto;
+    width: 50%;
+}

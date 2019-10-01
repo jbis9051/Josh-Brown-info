@@ -1,0 +1,17 @@
+
+.parallax {
+    padding: 0;
+    margin: 0;
+    height: 200px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+@media only screen and (max-width: 700px) {
+
+    .parallax {
+        background-attachment: scroll;
+        display: flex;
+    }
+}
