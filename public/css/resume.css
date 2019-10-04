@@ -1,0 +1,220 @@
+.project_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    box-shadow: 0 31px 35px rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    background: #0F0F0F;
+    padding: 20px;
+    color: #cccccc;
+    border-radius: .5rem;
+}
+
+/*================================== PARALLAX ==================================== */
+.parallax {
+    padding: 0;
+    margin: 0;
+    height: 300px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+@media only screen and (max-width: 800px) {
+    .parallax {
+        background-attachment: scroll;
+        display: flex;
+    }
+}
+
+.parallax:first-child {
+    height: 200px;
+}
+
+.parallax:last-child {
+    height: 100vh;
+}
+
+.parallax.bbscheduler {
+    background-image: url("/media/images/bbscheduler/landing.jpg");
+}
+
+.parallax.thanksgiving_library {
+    background-image: url("/media/images/pcrblibrary/thanksgiving-payment.jpg");
+}
+
+.parallax.purdue_180 {
+    background-image: url("/media/images/purdue/purdue_sign.jpg");
+}
+
+.parallax.sobotdocs {
+    background-image: url("/media/images/sobot/sobotdocs.png");
+}
+
+.parallax.sobot {
+    background-image: url("/media/images/sobot/sobot_profile.png");
+}
+
+.parallax.james {
+    background-image: url("/media/images/james/discord.png");
+}
+
+.parallax.quickd {
+    background-image: url("/media/images/quickd/quickd_screenshot.jpg");
+}
+
+.parallax.html5player {
+    background-image: url("/media/images/player/player.jpg");
+}
+
+.parallax.thiswebsite {
+    background-image: url("/media/images/thiswebsite/code.jpg");
+}
+
+.parallax.twofactor {
+    background-image: url("/media/images/pcrblibrary/2fa.png");
+}
+
+.parallax.manage_pcrbl {
+    background-image: url("/media/images/pcrblibrary/pcrb_google_cloud.png");
+}
+
+.parallax.macandrews {
+    background-image: url("/media/images/macandrews/building.png");
+}
+
+.parallax.donation_pcrbl {
+    background-image: url("/media/images/pcrblibrary/pcrb_library_donation_site.png");
+}
+
+.parallax.senior {
+    background-image: url("/media/images/seniorcenter/sign.jpg");
+}
+
+.parallax.media_site {
+    background-image: url("/media/images/mediawebsite/mediawebsite.png");
+}
+
+.parallax.hq_bot {
+    background-image: url("/media/images/hqbot/hqwebsite.png");
+}
+
+.parallax.home_server {
+    background-image: url("/media/images/homeserver/keyboard.JPG");
+}
+
+.parallax.study_clash {
+    background-image: url("/media/images/study_clash/home.png");
+}
+
+.parallax.stencyl {
+    background-image: url("/media/images/stencyl/stencyl_interface.png");
+}
+
+.parallax.more_soon {
+    z-index: -4;
+    background-image: url("/media/images/src/hands_with_text.jpg");
+}
+
+/* THAT TOOK TOO LONG */
+
+.project_wrapper a:link {
+    color: #0074b1;
+}
+
+.project_wrapper a:visited {
+    color: #5ca4e2;
+}
+
+.project_wrapper:last-child {
+    border-bottom: none;
+}
+
+.project_wrapper .right {
+    width: auto;
+    margin: auto;
+}
+
+.project_wrapper .left {
+    width: 100%;
+    margin: auto;
+}
+
+.project_preview {
+    box-shadow: 0 31px 35px rgba(0, 0, 0, 0.6);
+    width: 100px;
+    height: auto;
+    border-radius: 0.25rem;
+    margin-right: 20px;
+    transition: transform 200ms ease-in-out;
+    transform: scale(1);
+}
+
+.project_preview:hover {
+    transform: scale(1.2);
+}
+
+.project_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.project_date {
+    font-size: 15px;
+    margin-top: 0;
+}
+
+
+.project_description {
+    margin-top: 2%;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.expand_content {
+    display: none;
+    overflow: auto;
+    height: 250px;
+}
+
+.extra_content_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.person {
+    font-weight: bold;
+}
+
+.person_title {
+    font-weight: bold;
+    font-style: italic;
+}
+
+.quote {
+    font-style: italic;
+}
+
+.product_button, .product_button_more {
+    border: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    color: white;
+    background: none;
+    margin-top: 15px;
+}
+
+.product_button, .product_button_more {
+    background-color: rgba(29, 29, 29, 0.85);
+    text-decoration: none;
+}
+
+.product_button:hover, .product_button_more:hover {
+    background-color: rgb(0, 0, 0);
+}
+

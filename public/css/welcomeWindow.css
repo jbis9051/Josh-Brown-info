@@ -1,0 +1,52 @@
+.welcome_side_banner_wrapper {
+    display: none;
+    position: fixed;
+    width: 30%;
+    min-width: 300px;
+    right: 25px;
+    bottom: 25px;
+    z-index: 3;
+}
+
+.welcome_side_banner_wrapper[active] {
+    display: block;
+}
+
+.welcome_content {
+    background: #ffffff;
+    border-radius: .25rem;
+    border: 2px solid #dee2e6;
+    padding: 20px;
+}
+
+.welcome_message {
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    text-align: center;
+    vertical-align: center;
+    color: rgba(19, 19, 19, 0.98);
+}
+
+@media only screen and (max-width: 800px) {
+
+    .welcome_side_banner_wrapper {
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+    .welcome_content {
+        padding: 10px;
+    }
+
+    .welcome_message {
+        font-size: 10px;
+    }
+
+    .welcome_content .modal_close_button {
+        display: block;
+        position: static;
+        width: 100%;
+        border-radius: 0;
+        font-size: 25px;
+    }
+}

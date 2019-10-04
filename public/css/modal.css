@@ -1,0 +1,80 @@
+.modal_wrapper {
+    height: 0;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.35);
+    left: 0;
+    top: 0;
+    z-index: 99;
+    transition: height 2ms;
+    transition-delay: 190ms;
+}
+
+.modal_wrapper[active] {
+    height: 100%;
+    overflow: auto;
+    transition-delay: 0ms;
+}
+
+.modal_content_wrapper, .game_content_wrapper {
+    position: relative;
+    top: 10%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+.modal_content_wrapper {
+    background: white;
+    border: 1px solid #888;
+    width: 0;
+    height: 0;
+    transition: 200ms;
+}
+
+.modal_wrapper[active] .modal_content_wrapper {
+    height: 70%;
+    width: 80%;
+}
+
+.game_content_wrapper {
+    width: 640px;
+    height: 480px;
+}
+
+.modal_close_button {
+    display: block;
+    width: 35px;
+    height: 35px;
+    color: white;
+    text-align: center;
+    line-height: 33px;
+    background-color: #000000;
+    border-radius: 50%;
+    font-size: 25px;
+    position: relative;
+    left: 101%;
+    top: -45px;
+    border: 1px #272727 solid;
+    cursor: pointer;
+    user-select: none;
+}
+
+.modal_content {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    bottom: 20px;
+    right: 20px;
+}
+
+.modal_content img {
+    position: absolute;
+    max-width: 100%;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
