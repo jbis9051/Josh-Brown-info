@@ -16,9 +16,6 @@ router.all('/', async function (req, res, next) {
     if (!validateEmail(req.body.email)) {
         errors.push("Invalid Email");
     }
-    if (!validateReason(req.body.reason)) {
-        errors.push("Invalid Reason");
-    }
     if (errors.length === 0) {
         const data = {
             from: 'Contact From <API@joshbrown.info>',
@@ -32,7 +29,7 @@ Message:
 ${req.body.message}           
 `
         };
-        conn.execute('INSERT INTO contact_form_data (ip,name,email,reason,message) VALUE (?,?,?,?,?)', [ip, req.body.name, req.body.email, req.body.reason, req.body.message]).then(e => res.send({status: "success"}));
+        conn.execute('INSERT INTO contact_form_data (ip,name,email,message) VALUE (?,?,?,?)', [ip, req.body.name, req.body.email, req.body.message]).then(e => res.send({status: "success"}));
         mailgun.messages().send(data, (error, body) => {
             if (error) {
                 console.error(error);
@@ -49,17 +46,6 @@ function validateName(name) {
 
 function validateEmail(email) {
     return /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(String(email).toLowerCase());
-}
-
-const reasonsWhitelist = [
-    "employment",
-    "questions",
-    "suggestions",
-    "other",
-];
-
-function validateReason(reason) {
-    return reasonsWhitelist.includes(reason);
 }
 
 module.exports = router;

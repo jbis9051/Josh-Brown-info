@@ -1,6 +1,5 @@
 const nameInput = document.querySelector('#name');
 const emailInput = document.querySelector('#email');
-const reasonInput = document.querySelector('#reason');
 
 document.querySelector('#validate_form_button').addEventListener("click", () => {
     document.querySelectorAll('.form-error').forEach(e => e.remove());
@@ -11,10 +10,6 @@ document.querySelector('#validate_form_button').addEventListener("click", () => 
     }
     if (!validateEmail(emailInput.value)) {
         emailInput.parentNode.insertBefore(createErrorNode('Please fill in a email address'), emailInput);
-        submit = false;
-    }
-    if (reasonInput.value === "") {
-        reasonInput.parentNode.insertBefore(createErrorNode('Please select a reason'), reasonInput);
         submit = false;
     }
     if (submit) {
