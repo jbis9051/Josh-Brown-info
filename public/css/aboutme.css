@@ -72,6 +72,7 @@
 .scrolled .bottom {
     transition-delay: 0ms;
     height: 100%;
+    overflow: auto;
 }
 
 .information-container {
@@ -79,7 +80,6 @@
     width: 80%;
     padding: 2% 5% 5%;
     font-family: 'IBM Plex Mono', monospace;
-    min-height: 80vh;
     border-radius: 6px;
     box-sizing: border-box;
     transition: 500ms;

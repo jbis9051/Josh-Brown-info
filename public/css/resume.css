@@ -1,13 +1,28 @@
 .project_wrapper {
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     box-shadow: 0 31px 35px rgba(0, 0, 0, 0.6);
     opacity: 0;
     background: #0F0F0F;
     padding: 20px;
     color: #cccccc;
     border-radius: .5rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .project_wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .right {
+        margin-top: 50px;
+    }
+
+    /* .project_product_wrapper button {
+         display: block;
+         margin: 0 auto;
+     }*/
 }
 
 /*================================== PARALLAX ==================================== */
@@ -133,7 +148,7 @@
 
 .project_wrapper .right {
     width: auto;
-    margin: auto;
+    margin-right: 20px;
 }
 
 .project_wrapper .left {
@@ -146,7 +161,6 @@
     width: 100px;
     height: auto;
     border-radius: 0.25rem;
-    margin-right: 20px;
     transition: transform 200ms ease-in-out;
     transform: scale(1);
 }
