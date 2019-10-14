@@ -1,0 +1,108 @@
+form {
+    width: 100%
+}
+
+input, textarea {
+    margin: 10px auto;
+    display: block;
+    box-sizing: border-box;
+    background: transparent;
+    width: 80%;
+    border: 1px solid rgba(221, 221, 221, 0);
+    transition: border 200ms linear;
+    outline: none;
+}
+
+input:focus, textarea:focus, input:hover, textarea:hover {
+    border: 1px solid rgb(134, 134, 134);
+}
+
+textarea {
+    resize: vertical;
+    height: 250px;
+    font-size: 20px;
+    padding: 10px;
+    white-space: normal;
+    text-align: justify;
+}
+
+.project_title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 300;
+}
+
+.project_date {
+    text-align: center;
+    max-width: 400px;
+    font-size: 18px;
+}
+
+.tags {
+    font-size: 15px;
+    padding: 5px 10px;
+}
+
+.section {
+    border: 1px solid rgb(134, 134, 134);
+    margin: 20px 0;
+}
+
+.section h2 {
+    text-align: center;
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.checkbox input {
+    display: inline-block;
+    margin-right: 10px;
+    height: 15px;
+    width: 15px;
+    border-radius: 0.25rem;
+    background: white;
+    border: 1px solid #1a1e22;
+    -webkit-appearance: none;
+}
+
+.checkbox input:checked {
+    background: #1a1e22;
+}
+
+.delete {
+    background: #ff6258;
+}
+
+.delete:hover {
+    background: #933732;
+}
+
+.button-area {
+    display: flex;
+    justify-content: center;
+}
+
+.buttons {
+    padding: 20px;
+}
+
+.button {
+    display: inline-block;
+    color: #0b5e99;
+    font-weight: bold;
+    font-size: 25px;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.button-table input {
+    font-size: 15px;
+}

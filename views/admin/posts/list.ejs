@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% include ../components/head.ejs %>
+    <link rel="stylesheet" href="/admin/css/list.css">
+    <title>Posts</title>
+</head>
+<body>
+<% include ../components/sidebar.ejs %>
+<div class="main">
+    <h1>Posts</h1>
+    <a href="posts/new" class="btn new-button">New</a>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>Title</th>
+                <th>Tags</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% posts.forEach(post => { %>
+                <tr class="item">
+                    <td><%= post.id %></td>
+                    <td class="item-title"><a href="posts/<%= post.id %>/edit"><%= post.title %></a></td>
+                    <td class="tags">
+                        <% post.tags.slice(0, 5).forEach(tag => { %>
+                            <span class="tag"><%= tag %></span>
+                        <% }); %>
+                    </td>
+                    <td><%= post.date.toLocaleString() %></td>
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% include ../components/head.ejs %>
+    <link rel="stylesheet" href="/admin/css/list.css">
+    <link rel="stylesheet" href="/admin/css/edit.css">
+    <title><%= post.title %></title>
+</head>
+<body>
+<% include ../components/sidebar.ejs %>
+<div class="main">
+    <form method="POST" action="save">
+        <div class="section">
+            <h2>Content</h2>
+
+            <input type="text" name="title" class="project_title" value="<%= post.title %>" placeholder="Title">
+            <input type="text" name="time_frame" class="project_date" value="<%= post.time_frame %>"
+                   placeholder="Time Frame">
+            <textarea name="description" class="project_description"
+                      placeholder="Description"><%= post.description %></textarea>
+            <input name="tags" autocomplete="off" autocapitalize="off" spellcheck="false" type="text" class="tags"
+                   placeholder="Tags" value="<%= post.tags.join(", ") %>">
+        </div>
+        <div class="section">
+            <h2>Options</h2>
+            <label class="checkbox"><input name="display" type="checkbox" <%= post.display ? "checked" : "" %>><span>Display</span></label>
+        </div>
+        <div class="section buttons">
+            <h2>Buttons</h2>
+            <button type="button" class="btn new-button">New</button>
+            <div class="table-wrapper">
+                <table class="button-table">
+                    <thead>
+                    <tr>
+                        <th>Content</th>
+                        <th>Hyperlink</th>
+                        <th>JS ID</th>
+                        <th>Data</th>
+                    </tr>
+                    </thead>
+                    <tbody id="buttons_list">
+                    <% post.buttons.forEach(button => { %>
+                        <tr class="item">
+                            <td class="item-title"><input value="<%= button.content %>" name="button_name[]"></td>
+                            <td><input value="<%= button.hyperlink %>" name="button_link[]"></td>
+                            <td><input value="<%= button.js_id %>" name="button_id[]"></td>
+                            <td><input value="<%= button.data_custom %>" name="button_data[]"></td>
+                            <td><span class="button up-button">↑</span><span class="button down-button">↓</span><span
+                                        class="button x-button">✕</span></td>
+                        </tr>
+                    <% }); %>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="button-area">
+            <a href="delete" class="btn delete" type="submit">Delete</a>
+            <button class="btn submit_button" type="submit">Save</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.querySelector('.delete').addEventListener("click", evt => {
+        if (!confirm("Are you sure you would like to delete this post?")) {
+            evt.preventDefault();
+        }
+    });
+    document.querySelector('.new-button').addEventListener("click", evt => {
+        const item = document.createElement("tr");
+        item.classList.add("item");
+        item.innerHTML = `<tr class="item">
+    <td class="item-title"><input value="Untitled" name="button_name[]"></td>
+    <td><input value="" name="button_link[]"></td>
+    <td><input value="" name="button_id[]"></td>
+    <td><input value="" name="button_data[]"></td>
+    <td><span class="button up-button">↑</span><span class="button down-button">↓</span><span
+            class="button x-button">✕</span></td>
+</tr>
+        `;
+        document.querySelector("#buttons_list").append(item)
+    });
+    document.querySelector('.button-table').addEventListener("click", evt => {
+        if (evt.target.classList.contains("x-button")) {
+            _handleXButton(evt)
+            return;
+        }
+        if (evt.target.classList.contains("up-button")) {
+            _handleUpButton(evt);
+            return;
+        }
+        if (evt.target.classList.contains("down-button")) {
+            _handleDownButton(evt);
+            return;
+        }
+    });
+
+    function _handleXButton(evt) {
+        if (!confirm("Are you sure you would like to delete this button?")) {
+            return;
+        }
+        evt.target.parentElement.parentElement.remove();
+    }
+
+    function _handleUpButton(evt) { // https://stackoverflow.com/a/34914096/7886229
+        const el = evt.target.parentElement.parentElement;
+        if (el.previousElementSibling) {
+            el.parentNode.insertBefore(el, el.previousElementSibling);
+        }
+    }
+
+    function _handleDownButton(evt) { // https://stackoverflow.com/a/34914096/7886229
+        const el = evt.target.parentElement.parentElement;
+        if (el.nextElementSibling) {
+            el.parentNode.insertBefore(el.nextElementSibling, el);
+        }
+    }
+</script>
+</body>
+</html>

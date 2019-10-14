@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% include ../components/head.ejs %>
+    <link rel="stylesheet" href="/admin/css/contact_view.css">
+    <title>Contact Form Data / <%= item.name %></title>
+</head>
+<body>
+<% include ../components/sidebar.ejs %>
+<div class="main">
+    <h1>Contact Form Data</h1>
+    <div class="section">
+        <span class="from"><span class="label">From: </span><a href="mailto:<%= item.email %>"
+                                                               class="content"><%= item.name %> &lt;<%= item.email %>&gt;</a></span>
+        <p class="message"><%= item.message %></p>
+    </div>
+    <a href="/admin/form/contact">← Back To Responses</a>
+</div>
+</body>
+</html>

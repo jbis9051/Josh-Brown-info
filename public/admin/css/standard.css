@@ -1,0 +1,19 @@
+.btn {
+    font-size: 18px;
+    -webkit-appearance: none;
+    background: #0d78c3;
+    border-radius: 0.25rem;
+    padding: 5px 25px;
+    color: #f8f8f8;
+    border: none;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    display: inline-block;
+    height: 22px;
+    box-sizing: content-box;
+    line-height: 22px;
+}
+
+.btn:hover {
+    background: #094c7a;
+}

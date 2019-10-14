@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% include ../components/head.ejs %>
+    <link rel="stylesheet" href="/admin/css/list.css">
+    <title>Contact Form Data</title>
+</head>
+<body>
+<% include ../components/sidebar.ejs %>
+<div class="main">
+    <h1>Contact Form Data</h1>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>From</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% items.forEach(item => { %>
+                <tr class="item">
+                    <td><%= item.id %></td>
+                    <td class="item-title"><a href="contact/responses/<%= item.id %>"><%= item.name %></a></td>
+                    <td><%= item.date.toLocaleString() %></td>
+                </tr>
+            <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
