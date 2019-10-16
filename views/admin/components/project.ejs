@@ -1,0 +1,42 @@
+<%
+function getFade(index, type) {
+    if (index > 0) {
+        return "fadeIn_3";
+    }
+    if (type === 0) {
+        return "fadeIn_1";
+    }
+    return "fadeIn_2";
+}
+%>
+<div class="parallax <%= getFade(i, 0) %>>" style='background-image: url("<%= post.background_url || "" %>")'></div>
+<div class="project_wrapper <%= getFade(i, 1) %>">
+    <div class="right">
+        <img class="project_preview" src="<%= post.thumb_url %>">
+    </div>
+    <div class="left">
+        <h2 class="project_title"><%- post.title %></h2>
+        <span class="project_date"><%- post.time_frame %></span>
+        <p class="project_description"><%- post.description.replace(/\n/g, "<br>") %></p>
+        <% if(post.quotes.length > 0){ %>
+            <h4 class="extra_content_title">Testimonials</h4>
+            <div class="testimonial_wrapper">
+                <% post.quotes.forEach(quote => { %>
+                    <span class="person"><%- quote.name %></span>
+                    <span class="quote"><%- quote.quote %></span>
+                <% }); %>
+            </div>
+        <% } %>
+        <% if(post.buttons.length > 0){ %>
+            <div class="project_product_wrapper">
+                <% post.buttons.forEach(button => { %>
+                    <a target="_blank"
+                       class="product_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>
+                       href="<%= button.hyperlink %>">
+                        <%= button.content %>
+                    </a>
+                <% }); %>
+            </div>
+        <% } %>
+    </div>
+</div>

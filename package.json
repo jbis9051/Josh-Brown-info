@@ -16,5 +16,9 @@
     "mailgun-js": "^0.22.0",
     "morgan": "~1.9.1",
     "mysql2": "^1.7.0"
+  },
+  "devDependencies": {
+    "html-entities": "^1.2.1",
+    "cheerio": "^1.0.0-rc.3"
   }
 }

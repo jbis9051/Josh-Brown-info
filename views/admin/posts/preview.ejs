@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/css/resume.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="/css/index.css?v=2.0.0">
+    <title>Preview Resume</title>
+</head>
+<style>
+    body {
+        overflow: auto;
+        font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    }
+</style>
+<body>
+<% posts.filter(post => post.display).forEach((post, i) => { %>
+    <%- include('../components/project.ejs',{post: post, i: i}); %>
+<% }); %>
+<div class="parallax more_soon fadeIn_5"><!--span class="text">And more to come...</span--></div>
+</body>
+</html>

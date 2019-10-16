@@ -13,7 +13,12 @@ class Post {
             this.date = row["date"];
             this.tags = row["tags"] || [];
             this.buttons = row["buttons"] || [];
+            this.quotes = row["quotes"] || [];
         }
+    }
+
+    getTextTitle() {
+        return this.title.replace(/<[^>]+>/g, "");
     }
 
     static async FromQuery(query) {
@@ -22,7 +27,7 @@ class Post {
             return null;
         }
         const post = new Post(row);
-        await Promise.all([post.getTags(), post.getButtons()]);
+        await Promise.all([post.getTags(), post.getButtons(), post.getQuotes()]);
         return post;
     }
 
@@ -31,10 +36,10 @@ class Post {
     }
 
     static async getAll() {
-        let [posts] = await conn.execute("SELECT * FROM `posts`");
+        let [posts] = await conn.execute("SELECT * FROM `posts` ORDER BY DATE DESC");
         posts = posts.map(post => new Post(post));
         const promises = [];
-        posts.forEach(post => promises.push(post.getTags(), post.getButtons()));
+        posts.forEach(post => promises.push(post.getTags(), post.getButtons(), post.getQuotes()));
         await Promise.all(promises);
         return posts;
     }
@@ -57,6 +62,9 @@ class Post {
         }
         if (row["buttons"] !== undefined) {
             promises.push(this.updateButtons(row["buttons"]));
+        }
+        if (row["quotes"] !== undefined) {
+            promises.push(this.updateQuotes(row["quotes"]));
         }
         promises.push(this._sync());
         return Promise.all(promises);
@@ -86,7 +94,7 @@ class Post {
     }
 
     _addButton(button) {
-        return conn.execute("INSERT INTO `buttons` (content,hyperlink,`js_id`,`data_custom`, post_id) VALUES (?, ?,?,?,?)", [button.content, button.hyperlink, button.js_id, button.data_custom, this.id]);
+        return conn.execute("INSERT INTO `buttons` (content,hyperlink,`extra_class`,`data_custom`, post_id) VALUES (?, ?,?,?,?)", [button.content, button.hyperlink, button.extra_class, button.data_custom, this.id]);
     }
 
     async getButtons() {
@@ -101,6 +109,26 @@ class Post {
         }
     }
 
+    _removeQuotes() {
+        return conn.execute("DELETE FROM `quotes` WHERE `post_id` = ?", [this.id]);
+    }
+
+    _addQuote(quote) {
+        return conn.execute("INSERT INTO `quotes` (`name`,`quote`, post_id) VALUES (?,?,?)", [quote.name, quote.quote, this.id]);
+    }
+
+    async getQuotes() {
+        [this.quotes] = await conn.execute("SELECT * FROM `quotes` WHERE post_id = ?", [this.id]);
+        return this.quotes;
+    }
+
+    async updateQuotes(quotes) {
+        await this._removeQuotes();
+        for (const quote of quotes) {
+            await this._addQuote(quote);
+        }
+    }
+
     async delete() {
         return await this._removeTags() && await conn.execute("DELETE FROM `posts` WHERE id = ? ", [this.id]);
     }
@@ -109,6 +137,11 @@ class Post {
         return conn.execute("UPDATE `posts` SET `title` = ?,`time_frame` = ?,`description` = ?,`background_url` = ?,`thumb_url` = ?,`display` = ? WHERE id = ?", [this.title, this.time_frame, this.description, this.background_url, this.thumb_url, this.display, this.id]);
     }
 
+    /**
+     *
+     * @param input
+     * @return {Promise<Post>}
+     */
     static async new(input = {}) {
         const defaults = {
             title: "Untitled",

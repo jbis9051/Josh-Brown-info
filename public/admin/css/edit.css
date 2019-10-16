@@ -17,13 +17,11 @@ input:focus, textarea:focus, input:hover, textarea:hover {
     border: 1px solid rgb(134, 134, 134);
 }
 
-textarea {
+.project_description {
     resize: vertical;
     height: 250px;
     font-size: 20px;
     padding: 10px;
-    white-space: normal;
-    text-align: justify;
 }
 
 .project_title {
@@ -75,6 +73,36 @@ textarea {
     background: #1a1e22;
 }
 
+.images {
+    padding: 10px;
+}
+
+.image_selector_title {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.image_selector {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.image_selector input {
+    font-size: 20px;
+}
+
+.image_selector img {
+    height: 75px;
+    border: 1px solid #1a1e22;
+    background: white;
+}
+
+.image_selector img[zoom] {
+    position: absolute;
+    height: 375px;
+}
+
 .delete {
     background: #ff6258;
 }
@@ -88,7 +116,7 @@ textarea {
     justify-content: center;
 }
 
-.buttons {
+.list-section {
     padding: 20px;
 }
 
@@ -103,6 +131,20 @@ textarea {
     cursor: pointer;
 }
 
-.button-table input {
+.list-table input {
     font-size: 15px;
+}
+
+.quote_input {
+    resize: none;
+    width: 100%;
+    font-size: 20px;
+}
+
+.back {
+    display: block;
+}
+
+.item-title {
+    width: 20%;
 }

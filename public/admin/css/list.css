@@ -31,10 +31,25 @@ td {
     font-weight: bold;
 }
 
+.item-title.off {
+    color: #9a9ca2;
+}
+
 .item-title:hover {
     color: #0e98f9;
 }
 
+.item-title.off:hover {
+    color: #48494f;
+}
+
+.preview-button {
+    background: #259a35;
+}
+
+.preview-button:hover {
+    background: #176321;
+}
 .tags {
     overflow: hidden;
     white-space: nowrap;
