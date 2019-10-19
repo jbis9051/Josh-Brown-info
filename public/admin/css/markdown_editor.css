@@ -1,0 +1,33 @@
+.markdown_wrapper {
+    display: flex;
+    align-items: stretch;
+    padding: 10px;
+}
+
+.markdown_input, .markdown_viewer {
+    width: 50%;
+    height: 400px;
+    margin: 0 5px;
+    border: 1px solid #1a1e22;
+    resize: none;
+    font-size: 20px;
+    padding: 10px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.markdown_viewer a {
+    color: #0074b1;
+}
+
+.markdown_viewer a:visited {
+    color: #5ca4e2;
+}
+
+.markdown_viewer h1 {
+    margin: 10px 0;
+}
+
+.markdown_viewer {
+    border: 1px solid #1a1e22;
+}

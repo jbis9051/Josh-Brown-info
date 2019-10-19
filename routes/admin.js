@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
+const mainRouter = require('./admin/main.js');
 const loginRouter = require('./admin/login.js');
 const postRouter = require('./admin/posts.js');
 const formRouter = require('./admin/form.js');
@@ -36,6 +37,7 @@ router.get('/', function (req, res, next) {
     res.render('admin/dashboard');
 });
 
+router.use('/main', mainRouter);
 router.use('/posts', postRouter);
 router.use('/form', formRouter);
 

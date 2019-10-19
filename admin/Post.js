@@ -1,4 +1,6 @@
 const conn = require('./helpers/mysql.js').create();
+const showdown = require('showdown');
+const converter = new showdown.Converter();
 
 class Post {
     constructor(row) {
@@ -19,6 +21,10 @@ class Post {
 
     getTextTitle() {
         return this.title.replace(/<[^>]+>/g, "");
+    }
+
+    getHTMLDescription() {
+        return converter.makeHtml(this.description);
     }
 
     static async FromQuery(query) {

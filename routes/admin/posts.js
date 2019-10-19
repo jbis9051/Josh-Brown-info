@@ -2,7 +2,8 @@ var express = require('express');
 var router = express.Router();
 
 const Post = require('../../admin/Post');
-
+const csrf = require('csurf-login-token');
+const csrfProtection = csrf('token');
 
 router.get('/', async function (req, res, next) {
     res.render('admin/posts/list', {posts: await Post.getAll()});
@@ -11,11 +12,11 @@ router.get('/new', async function (req, res, next) {
     const post = await Post.new();
     res.redirect(`/admin/posts/${post.id}/edit`);
 });
-router.get('/:id/edit', async function (req, res, next) {
+router.get('/:id/edit', csrfProtection, async function (req, res, next) {
     const post = await Post.FromId(req.params.id);
-    res.render('admin/posts/edit', {post: post});
+    res.render('admin/posts/edit', {post: post, csrfToken: req.csrfToken()});
 });
-router.post('/:id/save', async function (req, res, next) {
+router.post('/:id/save', csrfProtection, async function (req, res, next) {
     const post = await Post.FromId(req.params.id);
     if (!post) {
         res.send("Error: Could Not Find Post with that ID");
@@ -71,7 +72,7 @@ router.post('/:id/save', async function (req, res, next) {
     await post.update(req.body);
     res.redirect(`/admin/posts`);
 });
-router.get('/:id/delete', async function (req, res, next) {
+router.get('/:id/delete', csrfProtection, async function (req, res, next) {
     const post = await Post.FromId(req.params.id);
     await post.delete();
     res.redirect("/admin/posts");

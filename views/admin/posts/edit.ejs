@@ -93,9 +93,10 @@
             </div>
         </div>
         <div class="button-area">
-            <a href="delete" class="btn delete" type="submit">Delete</a>
+            <a href="delete?_csrf=<%= csrfToken %>" class="btn delete" type="submit">Delete</a>
             <button class="btn submit_button" type="submit">Save</button>
         </div>
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
     </form>
     <a href="/admin/posts" class="back">← Back To Posts</a>
 </div>

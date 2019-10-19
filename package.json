@@ -15,7 +15,9 @@
     "http-errors": "~1.6.3",
     "mailgun-js": "^0.22.0",
     "morgan": "~1.9.1",
-    "mysql2": "^1.7.0"
+    "mysql2": "^1.7.0",
+    "showdown": "^1.9.0",
+    "csurf-login-token": "latest"
   },
   "devDependencies": {
     "html-entities": "^1.2.1",

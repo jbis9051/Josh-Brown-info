@@ -17,7 +17,7 @@ function getFade(index, type) {
     <div class="left">
         <h2 class="project_title"><%- post.title %></h2>
         <span class="project_date"><%- post.time_frame %></span>
-        <p class="project_description"><%- post.description.replace(/\n/g, "<br>") %></p>
+        <p class="project_description"><%- post.getHTMLDescription() %></p>
         <% if(post.quotes.length > 0){ %>
             <h4 class="extra_content_title">Testimonials</h4>
             <div class="testimonial_wrapper">
