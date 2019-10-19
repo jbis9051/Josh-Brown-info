@@ -1,0 +1,141 @@
+<!--
+
+
+
+Big thanks to....
+               ______           __   ____               _____
+              / __/ /____ _____/ /__/ __ \_  _____ ____/ _/ /__ _    __
+             _\ \/ __/ _ `/ __/  '_/ /_/ / |/ / -_) __/ _/ / _ \ |/|/ /
+            /___/\__/\_,_/\__/_/\_\\____/|___/\__/_/ /_//_/\___/__,__/
+
+for all of their help!
+
+Especially to:
+
+@TinyGiant -> https://stackoverflow.com/users/4639281/tiny-giant
+@DavidKamer -> https://stackoverflow.com/users/9260060/david-kamer
+
+
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Josh Brown's Portfolio"/>
+    <meta property="og:image" content="https://joshbrown.info/media/images/thiswebsite/code_small.png"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://joshbrown.info"/>
+    <meta name="description"
+          content="Josh Brown's portfolio and resume site containing many of the past project he has been involved in.  The website also contains information on Josh Brown and how you can contact him.">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/media/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/media/images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/media/images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="/media/images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="/media/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#00aba9">
+    <meta name="theme-color" content="#ffffff">
+    <!-- End Favicon -->
+    <title>Josh Brown's Portfolio</title>
+
+    <link type="text/css" rel="stylesheet" href="css/aboutme.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/resume.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/contact.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/professional_resume.css?v=2.0.0">
+
+    <link type="text/css" rel="stylesheet" href="css/navBar.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/modal.css?v=2.0.0">
+
+    <link type="text/css" rel="stylesheet" href="css/welcomeWindow.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/loadText.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/nojs.css?v=2.0.0">
+    <link type="text/css" rel="stylesheet" href="css/index.css?v=2.0.0">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<noscript class="nojs">Why no JavaScript?</noscript>
+<div class="load_text">
+    <div>
+        <span>Josh Brown</span>
+        <span class="bar"></span>
+    </div>
+</div>
+<div class="main">
+    <div class="controls">
+        <div class="hamburger_button"><span class="fa fa-bars"></span></div>
+        <img alt="logo" class="nav_logo" src="media/images/thiswebsite/JB%20Logo.svg">
+        <div class="read_controls">
+            <span data-tab="my_info" class="control_item">About Me</span>
+            <span data-tab="resume" id="portfolio" class="control_item">Portfolio</span>
+            <span data-tab="professional_resume" class="control_item" id="resume">Professional Resume</span>
+            <span data-tab="contact_page" id="contact" class="control_item">Contact</span>
+        </div>
+    </div>
+    <div class="content">
+        <!-- Info -->
+        <div data-tab-name="my_info" data-scroll="my_info" class="content_tab my_info fadeIn_1">
+            <div class="top">
+                <div class="who_am_i_wrapper">
+                    <span class="who_am_i">Who am I?</span>
+                </div>
+                <div class="instructions_wrapper">
+                    <span class="instructions">Scroll</span><span class="fa fa-angle-down"></span>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="information-container">
+                    <%- include('gen/aboutmeHTML'); %>
+                </div>
+            </div>
+        </div>
+        <!-- Resume Fun -->
+        <div data-tab-name="resume" class="content_tab resume_wrapper">
+            <%- include('gen/resumeHTML'); %>
+        </div>
+        <!-- Prof Resume -->
+        <div data-tab-name="professional_resume" class="content_tab professional-resume">
+            <%- include('professional_resume'); %>
+        </div>
+        <!-- Contact -->
+        <div data-tab-name="contact_page" class="content_tab contact_tab fadeIn_1">
+            <%- include('contact_page'); %>
+        </div>
+    </div>
+    <div active id="welcome_side_banner" class="welcome_side_banner_wrapper fadeIn_1">
+        <div class="welcome_content">
+            <span class="modal_close_button">&times;</span>
+            <div class="welcome_message">
+                <%- include('gen/welcomeHTML'); %>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="main_modal" class="modal_wrapper">
+    <div class="modal_content_wrapper">
+        <span class="modal_close_button">&times;</span>
+        <div id="modal_content" class="modal_content">
+        </div>
+    </div>
+</div>
+<div id="game_modal" class="modal_wrapper">
+    <div class="game_content_wrapper">
+        <span class="modal_close_button">&times;</span>
+        <div class="modal_content">
+        </div>
+    </div>
+</div>
+<script src="js/welcomeWindow.js?v=2.0.0"></script>
+<script src="js/contact.js?v=2.0.0"></script>
+<script src="js/modals.js?v=2.0.0"></script>
+<script src="js/aboutme.js?v=2.0.0"></script>
+<script src="js/main.js?v=2.0.0"></script>
+</body>
+</html>

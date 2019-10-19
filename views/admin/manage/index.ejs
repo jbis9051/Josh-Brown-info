@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <% include ../components/head.ejs %>
+    <link rel="stylesheet" href="/admin/css/list.css">
+    <title>Posts</title>
+</head>
+<body>
+<% include ../components/sidebar.ejs %>
+<div class="main">
+    <h1>Managment Panel</h1>
+    <label><a href="/admin/manage/publish?_csrf=<%= csrfToken %>" class="btn publish">Publish</a> <span>Last Published: <i><%= lastUpdate %></i></span></label>
+</div>
+<script>
+    document.querySelector('.publish').addEventListener("click", evt => {
+        if (!confirm("Are you sure you would like to publish?")) {
+            evt.preventDefault();
+        }
+    });
+</script>
+</body>
+</html>

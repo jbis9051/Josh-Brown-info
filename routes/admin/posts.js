@@ -8,6 +8,7 @@ const csrfProtection = csrf('token');
 router.get('/', async function (req, res, next) {
     res.render('admin/posts/list', {posts: await Post.getAll()});
 });
+// TODO: Add ability to reorder posts
 router.get('/new', async function (req, res, next) {
     const post = await Post.new();
     res.redirect(`/admin/posts/${post.id}/edit`);

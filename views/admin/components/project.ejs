@@ -9,7 +9,7 @@ function getFade(index, type) {
     return "fadeIn_2";
 }
 %>
-<div class="parallax <%= getFade(i, 0) %>>" style='background-image: url("<%= post.background_url || "" %>")'></div>
+<div class="parallax <%= getFade(i, 0) %>" style='background-image: url("<%= post.background_url || "" %>")'></div>
 <div class="project_wrapper <%= getFade(i, 1) %>">
     <div class="right">
         <img class="project_preview" src="<%= post.thumb_url %>">

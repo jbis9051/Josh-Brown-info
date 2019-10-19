@@ -5,6 +5,7 @@ const mainRouter = require('./admin/main.js');
 const loginRouter = require('./admin/login.js');
 const postRouter = require('./admin/posts.js');
 const formRouter = require('./admin/form.js');
+const manageRouter = require('./admin/manage.js');
 
 const User = require('../admin/User');
 
@@ -40,5 +41,6 @@ router.get('/', function (req, res, next) {
 router.use('/main', mainRouter);
 router.use('/posts', postRouter);
 router.use('/form', formRouter);
+router.use('/manage', manageRouter);
 
 module.exports = router;
