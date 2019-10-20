@@ -23,7 +23,7 @@ router.post('/save', csrfProtection, async function (req, res, next) {
     res.redirect(`/admin/posts`);
 });
 router.get('/preview', async function (req, res, next) {
-    res.render('admin/main/preview', {posts: await Post.getAll()});
+    res.render('admin/main/preview', {posts: await Post.getDisplayed()});
 });
 
 module.exports = router;

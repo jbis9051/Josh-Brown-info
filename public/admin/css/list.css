@@ -63,3 +63,14 @@ td {
     background-color: #E1ECF4;
     white-space: nowrap;
 }
+
+.button {
+    display: inline-block;
+    color: #0b5e99;
+    font-weight: bold;
+    font-size: 25px;
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    cursor: pointer;
+}

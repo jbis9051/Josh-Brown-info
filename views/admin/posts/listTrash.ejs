@@ -9,10 +9,7 @@
 <body>
 <% include ../components/sidebar.ejs %>
 <div class="main">
-    <h1>Posts</h1>
-    <a href="/admin/posts/new" class="btn new-button">New</a>
-    <a href="/admin/posts/preview" target="_blank" class="btn preview-button">Preview</a>
-    <a href="/admin/posts/trash" target="_blank" class="btn trash-button">Trash</a>
+    <h1>Posts Trash</h1>
     <div class="table-wrapper">
         <table>
             <thead>
@@ -28,18 +25,33 @@
                 <tr class="item">
                     <td><%= post.id %></td>
                     <td class="item-title <%= !post.display ? "off" : "" %>"><a
-                                href="posts/<%= post.id %>/edit"><%= post.getTextTitle() %></a></td>
+                                href="/admin/posts/<%= post.id %>/recover?_csrf=<%= csrfToken %>"
+                                class="recover"><%= post.getTextTitle() %></a></td>
                     <td class="tags">
                         <% post.tags.slice(0, 5).forEach(tag => { %>
                             <span class="tag"><%= tag %></span>
                         <% }); %>
                     </td>
                     <td><%= post.date.toLocaleString() %></td>
+                    <td><a href="/admin/posts/<%= post.id %>/delete?_csrf=<%= csrfToken %>"><span
+                                    class="button x-button">✕</span></a></td>
                 </tr>
             <% }); %>
             </tbody>
         </table>
     </div>
 </div>
+<script>
+    document.querySelector('.x-button').addEventListener("click", evt => {
+        if (!confirm("Are you sure you would like to delete this post? This action CANNOT be undone.")) {
+            evt.preventDefault();
+        }
+    });
+    document.querySelector('.recover').addEventListener("click", evt => {
+        if (!confirm("Are you sure you would like to recover this post?")) {
+            evt.preventDefault();
+        }
+    });
+</script>
 </body>
 </html>

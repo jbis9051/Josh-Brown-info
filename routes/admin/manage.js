@@ -25,7 +25,7 @@ router.get('/publish', csrfProtection, async function (req, res, next) {
     const pathToProjectComponent = path.join(__dirname, '..', '..', 'views', 'admin', 'components', 'project.ejs');
     const aboutmePromise = fs.writeFile(genPath('aboutmeHTML.ejs'), converter.makeHtml(await Main.val("about")));
     const welcomePromise = fs.writeFile(genPath('welcomeHTML.ejs'), converter.makeHtml(await Main.val("welcome")));
-    const posts = (await Post.getAll()).filter(post => post.display);
+    const posts = await Post.getDisplayed();
     let resumeHTML = "";
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];

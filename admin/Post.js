@@ -43,6 +43,25 @@ class Post {
 
     static async getAll() {
         let [posts] = await conn.execute("SELECT * FROM `posts` ORDER BY DATE DESC");
+        return await Post._ObjectsToPosts(posts);
+    }
+
+    static async getDisplayed() {
+        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `display` = 1 AND `trash` = 0 ORDER BY DATE DESC");
+        return await Post._ObjectsToPosts(posts);
+    }
+
+    static async getNonTrashed() {
+        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `trash` = 0 ORDER BY DATE DESC");
+        return await Post._ObjectsToPosts(posts);
+    }
+
+    static async getTrashed() {
+        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `trash` = 1 ORDER BY DATE DESC");
+        return await Post._ObjectsToPosts(posts);
+    }
+
+    static async _ObjectsToPosts(posts) {
         posts = posts.map(post => new Post(post));
         const promises = [];
         posts.forEach(post => promises.push(post.getTags(), post.getButtons(), post.getQuotes()));
@@ -137,6 +156,14 @@ class Post {
 
     async delete() {
         return await this._removeTags() && await conn.execute("DELETE FROM `posts` WHERE id = ? ", [this.id]);
+    }
+
+    trash() {
+        return conn.execute("UPDATE `posts` SET `trash` = 1 WHERE id = ? ", [this.id]);
+    }
+
+    recover() {
+        return conn.execute("UPDATE `posts` SET `trash` = 0 WHERE id = ? ", [this.id]);
     }
 
     _sync() {

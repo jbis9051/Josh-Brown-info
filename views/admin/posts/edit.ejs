@@ -93,7 +93,7 @@
             </div>
         </div>
         <div class="button-area">
-            <a href="delete?_csrf=<%= csrfToken %>" class="btn delete" type="submit">Delete</a>
+            <a href="trash?_csrf=<%= csrfToken %>" class="btn delete" type="submit">Trash</a>
             <button class="btn submit_button" type="submit">Save</button>
         </div>
         <input type="hidden" name="_csrf" value="<%= csrfToken %>">
@@ -102,7 +102,7 @@
 </div>
 <script>
     document.querySelector('.delete').addEventListener("click", evt => {
-        if (!confirm("Are you sure you would like to delete this post?")) {
+        if (!confirm("Are you sure you would like to move this post to trash?")) {
             evt.preventDefault();
         }
     });

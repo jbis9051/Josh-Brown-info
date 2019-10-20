@@ -6,16 +6,41 @@ const csrf = require('csurf-login-token');
 const csrfProtection = csrf('token');
 
 router.get('/', async function (req, res, next) {
-    res.render('admin/posts/list', {posts: await Post.getAll()});
+    res.render('admin/posts/list', {posts: await Post.getNonTrashed()});
 });
+router.get('/trash', csrfProtection, async function (req, res, next) {
+    res.render('admin/posts/listTrash', {posts: await Post.getTrashed(), csrfToken: req.csrfToken()});
+});
+
+
 // TODO: Add ability to reorder posts
 router.get('/new', async function (req, res, next) {
     const post = await Post.new();
     res.redirect(`/admin/posts/${post.id}/edit`);
 });
+
+
 router.get('/:id/edit', csrfProtection, async function (req, res, next) {
     const post = await Post.FromId(req.params.id);
     res.render('admin/posts/edit', {post: post, csrfToken: req.csrfToken()});
+});
+router.get('/:id/trash', csrfProtection, async function (req, res, next) {
+    const post = await Post.FromId(req.params.id);
+    await post.trash();
+    res.redirect("/admin/posts");
+});
+router.get('/:id/delete', csrfProtection, async function (req, res, next) {
+    const post = await Post.FromId(req.params.id);
+    await post.delete();
+    res.redirect("/admin/posts/trash");
+});
+router.get('/:id/recover', csrfProtection, async function (req, res, next) {
+    const post = await Post.FromId(req.params.id);
+    await post.recover();
+    res.redirect("/admin/posts");
+});
+router.get('/preview', async function (req, res, next) {
+    res.render('admin/posts/preview', {posts: await Post.getDisplayed()});
 });
 router.post('/:id/save', csrfProtection, async function (req, res, next) {
     const post = await Post.FromId(req.params.id);
@@ -72,14 +97,6 @@ router.post('/:id/save', csrfProtection, async function (req, res, next) {
     }
     await post.update(req.body);
     res.redirect(`/admin/posts`);
-});
-router.get('/:id/delete', csrfProtection, async function (req, res, next) {
-    const post = await Post.FromId(req.params.id);
-    await post.delete();
-    res.redirect("/admin/posts");
-});
-router.get('/preview', async function (req, res, next) {
-    res.render('admin/posts/preview', {posts: await Post.getAll()});
 });
 
 module.exports = router;
