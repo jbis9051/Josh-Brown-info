@@ -2,7 +2,7 @@ const config = {
     mysql: {
         host: '',
         user: '',
-        password: '!',
+        password: '',
         database: ''
     },
     mailgun: {

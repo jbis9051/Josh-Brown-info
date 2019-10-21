@@ -92,23 +92,13 @@ Especially to:
             </div>
             <div class="bottom">
                 <div class="information-container">
-                    <h1>Information</h1>
-                    <ul>
-                        <li>Age: 16 Years Old</li>
-                        <li>Grade: 11th</li>
-                        <li>Education: Currently in High School</li>
-                        <li>Specialty: Cyber Security</li>
-                    </ul>
-                    <h1>Background</h1>
-                    <p> My name is Josh Brown and I am currently in 11th Grade. My main interest is cyber
-                        security, specifically application security. I also do web development for fun and
-                        for practicing web security. I also like taking and editing photos and videos.</p>
+                    <%- include('gen/aboutmeHTML'); %>
                 </div>
             </div>
         </div>
         <!-- Resume Fun -->
         <div data-tab-name="resume" class="content_tab resume_wrapper">
-            <%- include('resume'); %>
+            <%- include('gen/resumeHTML'); %>
         </div>
         <!-- Prof Resume -->
         <div data-tab-name="professional_resume" class="content_tab professional-resume">
@@ -123,10 +113,7 @@ Especially to:
         <div class="welcome_content">
             <span class="modal_close_button">&times;</span>
             <div class="welcome_message">
-                <p>Welcome to my personal website. This website contains most of the projects that I have been involved
-                    in
-                    or created. It is also self hosted. All photos and
-                    screenshots are original. Thanks!</p>
+                <%- include('gen/welcomeHTML'); %>
             </div>
         </div>
     </div>
