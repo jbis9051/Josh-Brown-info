@@ -14,10 +14,10 @@
         <table>
             <thead>
             <tr>
-                <th>id</th>
-                <th>Title</th>
-                <th>Tags</th>
-                <th>Date</th>
+                <th class="id_header">id</th>
+                <th class="title_header">Title</th>
+                <th class="tag_header">Tags</th>
+                <th class="date_header">Date</th>
             </tr>
             </thead>
             <tbody>
@@ -32,7 +32,7 @@
                             <span class="tag"><%= tag %></span>
                         <% }); %>
                     </td>
-                    <td><%= post.date.toLocaleString() %></td>
+                    <td class="date"><%= post.date.toLocaleString() %></td>
                     <td><a href="/admin/posts/<%= post.id %>/delete?_csrf=<%= csrfToken %>"><span
                                     class="button x-button">✕</span></a></td>
                 </tr>

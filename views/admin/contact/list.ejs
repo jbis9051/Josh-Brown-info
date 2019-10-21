@@ -14,9 +14,9 @@
         <table>
             <thead>
             <tr>
-                <th>id</th>
-                <th>From</th>
-                <th>Date</th>
+                <th class="id_header">id</th>
+                <th class="title_header">From</th>
+                <th class="date_header">Date</th>
             </tr>
             </thead>
             <tbody>
@@ -24,7 +24,7 @@
                 <tr class="item">
                     <td><%= item.id %></td>
                     <td class="item-title"><a href="contact/responses/<%= item.id %>"><%= item.name %></a></td>
-                    <td><%= item.date.toLocaleString() %></td>
+                    <td class="date"><%= item.date.toLocaleString() %></td>
                 </tr>
             <% }); %>
             </tbody>

@@ -31,7 +31,7 @@ class Main {
             value = await Main._getValue(key);
         }
         await Main._delete(key);
-        return Main._newValue(key, value);
+        return await Main._newValue(key, value);
     }
 
 

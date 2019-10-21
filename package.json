@@ -4,6 +4,7 @@
   "description": "A personal resume website for Josh Brown",
   "private": true,
   "scripts": {
+    "pub": "node ./admin/scripts/pubish.js",
     "start": "node ./bin/www"
   },
   "dependencies": {
