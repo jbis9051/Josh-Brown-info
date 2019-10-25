@@ -120,17 +120,6 @@ input:focus, textarea:focus, input:hover, textarea:hover {
     padding: 20px;
 }
 
-.button {
-    display: inline-block;
-    color: #0b5e99;
-    font-weight: bold;
-    font-size: 25px;
-    height: 15px;
-    width: 15px;
-    margin: 0 5px;
-    cursor: pointer;
-}
-
 .list-table input {
     font-size: 15px;
 }

@@ -17,3 +17,7 @@
 .btn:hover {
     background: #094c7a;
 }
+
+.btn[hidden] {
+    display: none;
+}

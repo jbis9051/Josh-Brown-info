@@ -20,6 +20,7 @@ table {
         font-size: 16px;
     }
 }
+
 thead {
     border-bottom: 1px solid #dddddd;
 }
@@ -45,6 +46,9 @@ td {
     text-align: center;
 }
 
+.item:hover {
+    background: #e5e5e5;
+}
 .item-title {
     color: #0b5e99;
     font-weight: bold;
@@ -69,6 +73,7 @@ td {
 .preview-button:hover {
     background: #176321;
 }
+
 .tags {
     overflow: hidden;
     white-space: nowrap;
@@ -92,4 +97,17 @@ td {
     width: 15px;
     margin: 0 5px;
     cursor: pointer;
+}
+
+.button:hover {
+    color: #0a335b;
+}
+
+.hidden-input {
+    pointer-events: none;
+    border: none;
+    width: 100%;
+    font-size: inherit;
+    text-align: center;
+    background: transparent;
 }

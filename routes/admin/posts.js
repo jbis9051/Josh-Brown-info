@@ -5,8 +5,8 @@ const Post = require('../../admin/Post');
 const csrf = require('csurf-login-token');
 const csrfProtection = csrf('token');
 
-router.get('/', async function (req, res, next) {
-    res.render('admin/posts/list', {posts: await Post.getNonTrashed()});
+router.get('/', csrfProtection, async function (req, res, next) {
+    res.render('admin/posts/list', {posts: await Post.getNonTrashed(), csrfToken: req.csrfToken});
 });
 router.get('/trash', csrfProtection, async function (req, res, next) {
     res.render('admin/posts/listTrash', {posts: await Post.getTrashed(), csrfToken: req.csrfToken()});
@@ -97,6 +97,33 @@ router.post('/:id/save', csrfProtection, async function (req, res, next) {
     }
     await post.update(req.body);
     res.redirect(`/admin/posts`);
+});
+router.post('/order', csrfProtection, async function (req, res, next) {
+    const posts = await Post.getNonTrashed();
+    const postIds = posts.map(post => post.id);
+    const postsCount = posts.length;
+    if (!req.body["ids[]"]) {
+        res.send("Error: No Data");
+        return;
+    }
+    if (typeof req.body["ids[]"] === "string") {
+        req.body["ids[]"] = [req.body["ids[]"]];
+    }
+    if (req.body["ids[]"].length !== postsCount) {
+        res.send("Error: Invalid Count");
+        return;
+    }
+    if (req.body["ids[]"].some(id => isNaN(id))) {
+        res.send("Error: Invalid ID type");
+        return;
+    }
+    const ids = req.body["ids[]"].map(n => parseInt(n));
+    if (!ids.every(id => postIds.includes(id) && postIds.slice(postIds.indexOf(id), 1)) && postIds.length !== 0) {
+        res.send("Error: Bad id query");
+        return;
+    }
+    await Promise.all(posts.map(async post => post.setOrder(ids.indexOf(post.id))));
+    res.redirect('/admin/posts');
 });
 
 module.exports = router;

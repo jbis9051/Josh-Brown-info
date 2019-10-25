@@ -38,26 +38,26 @@ class Post {
     }
 
     static FromId(id) {
-        return Post.FromQuery(conn.execute("SELECT * FROM `posts` WHERE id = ?", [id]));
+        return Post.FromQuery(conn.execute(Post.orderQuery("SELECT * FROM `posts` WHERE id = ?"), [id]));
     }
 
     static async getAll() {
-        let [posts] = await conn.execute("SELECT * FROM `posts` ORDER BY DATE DESC");
+        let [posts] = await conn.execute(Post.orderQuery("SELECT * FROM `posts`"));
         return await Post._ObjectsToPosts(posts);
     }
 
     static async getDisplayed() {
-        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `display` = 1 AND `trash` = 0 ORDER BY DATE DESC");
+        let [posts] = await conn.execute(Post.orderQuery("SELECT * FROM `posts` WHERE `display` = 1 AND `trash` = 0"));
         return await Post._ObjectsToPosts(posts);
     }
 
     static async getNonTrashed() {
-        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `trash` = 0 ORDER BY DATE DESC");
+        let [posts] = await conn.execute(Post.orderQuery("SELECT * FROM `posts` WHERE `trash` = 0"));
         return await Post._ObjectsToPosts(posts);
     }
 
     static async getTrashed() {
-        let [posts] = await conn.execute("SELECT * FROM `posts` WHERE `trash` = 1 ORDER BY DATE DESC");
+        let [posts] = await conn.execute(Post.orderQuery("SELECT * FROM `posts` WHERE `trash` = 1"));
         return await Post._ObjectsToPosts(posts);
     }
 
@@ -187,6 +187,14 @@ class Post {
         const row = Object.assign(defaults, input);
         const [results] = await conn.execute("INSERT INTO `posts` (`title`,`time_frame`,`description`,`background_url`,`thumb_url`,`display`) VALUES (?,?,?,?,?,?)", [row.title, row.time_frame, row.description, row.background_url, row.thumb_url, row.display]);
         return await Post.FromId(results.insertId);
+    }
+
+    static orderQuery(query) {
+        return query + " ORDER BY `order_num`,`date` DESC";
+    }
+
+    setOrder(id) {
+        return conn.execute("UPDATE `posts` SET `order_num` = ? WHERE `id` = ?", [id, this.id]);
     }
 }
 

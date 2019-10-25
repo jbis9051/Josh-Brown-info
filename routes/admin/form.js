@@ -8,7 +8,6 @@ router.get('/contact', async function (req, res, next) {
 });
 router.get('/contact/responses/:id', async function (req, res, next) {
     const response = await ContactForm.FromId(req.params.id);
-    console.log(response);
     res.render('admin/contact/view', {item: response});
 });
 

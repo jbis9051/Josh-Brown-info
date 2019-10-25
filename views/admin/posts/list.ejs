@@ -13,33 +13,68 @@
     <a href="/admin/posts/new" class="btn new-button">New</a>
     <a href="/admin/posts/preview" target="_blank" class="btn preview-button">Preview</a>
     <a href="/admin/posts/trash" target="_blank" class="btn trash-button">Trash</a>
+    <input hidden type="submit" form="order_form" value="Change Order" class="btn submit-button">
     <div class="table-wrapper">
-        <table>
-            <thead>
-            <tr>
-                <th class="id_header">id</th>
-                <th class="title_header">Title</th>
-                <th class="tag_header">Tags</th>
-                <th class="date_header">Date</th>
-            </tr>
-            </thead>
-            <tbody>
-            <% posts.forEach(post => { %>
-                <tr class="item">
-                    <td><%= post.id %></td>
-                    <td class="item-title <%= !post.display ? "off" : "" %>"><a
-                                href="posts/<%= post.id %>/edit"><%= post.getTextTitle() %></a></td>
-                    <td class="tags">
-                        <% post.tags.slice(0, 5).forEach(tag => { %>
-                            <span class="tag"><%= tag %></span>
-                        <% }); %>
-                    </td>
-                    <td class="date"><%= post.date.toLocaleString() %></td>
+        <form method="post" action="/admin/posts/order" id="order_form">
+            <table>
+                <thead>
+                <tr>
+                    <th class="id_header">id</th>
+                    <th class="title_header">Title</th>
+                    <th class="tag_header">Tags</th>
+                    <th class="date_header">Date</th>
                 </tr>
-            <% }); %>
-            </tbody>
-        </table>
+                </thead>
+                <tbody class="list-table">
+                <% posts.forEach(post => { %>
+                    <tr class="item">
+                        <td><input name="ids[]" class="hidden-input" value="<%= post.id %>"></td>
+                        <td class="item-title <%= !post.display ? "off" : "" %>"><a
+                                    href="posts/<%= post.id %>/edit"><%= post.getTextTitle() %></a></td>
+                        <td class="tags">
+                            <% post.tags.slice(0, 5).forEach(tag => { %>
+                                <span class="tag"><%= tag %></span>
+                            <% }); %>
+                        </td>
+                        <td class="date"><%= post.date.toLocaleString() %></td>
+                        <td><span class="button up-button">↑</span><span class="button down-button">↓</span></td>
+                    </tr>
+                <% }); %>
+                </tbody>
+            </table>
+            <input name="_csrf" type="hidden" value="<%= csrfToken() %>">
+        </form>
     </div>
 </div>
+<script>
+    const getCurrentOrder = () => Array.from(document.querySelectorAll('input[name="ids[]"]')).map(d => d.value);
+    const original_order = getCurrentOrder();
+
+    document.querySelectorAll('.list-table').forEach(el => {
+        el.addEventListener("click", evt => {
+            if (evt.target.classList.contains("up-button")) {
+                _handleUpButton(evt);
+            }
+            if (evt.target.classList.contains("down-button")) {
+                _handleDownButton(evt);
+            }
+            document.querySelector('.submit-button').hidden = JSON.stringify(original_order) === JSON.stringify(getCurrentOrder());
+        });
+    });
+
+    function _handleUpButton(evt) { // https://stackoverflow.com/a/34914096/7886229
+        const el = evt.target.parentElement.parentElement;
+        if (el.previousElementSibling) {
+            el.parentNode.insertBefore(el, el.previousElementSibling);
+        }
+    }
+
+    function _handleDownButton(evt) { // https://stackoverflow.com/a/34914096/7886229
+        const el = evt.target.parentElement.parentElement;
+        if (el.nextElementSibling) {
+            el.parentNode.insertBefore(el.nextElementSibling, el);
+        }
+    }
+</script>
 </body>
 </html>
