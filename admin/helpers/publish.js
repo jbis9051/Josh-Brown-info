@@ -18,6 +18,7 @@ module.exports = async () => {
         const post = posts[i];
         resumeHTML += await ejs.renderFile(pathToProjectComponent, {post: post, i: i});
     }
+    resumeHTML += '<div class="parallax more_soon fadeIn_5"></div>'; // and more to come!
     const resumePromise = fs.appendFile(genPath('resumeHTML.ejs'), resumeHTML);
     return await Promise.all([aboutmePromise, welcomePromise, resumePromise, Main.updateDate("last_publish_date", "1")]);
 };
