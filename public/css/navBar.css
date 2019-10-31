@@ -1,8 +1,7 @@
 .controls {
     background: rgba(0, 0, 0, 0.8);
     flex-basis: 80px;
-    color: white;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Hind', serif;
     width: 100%;
     text-align: center;
     display: flex;
@@ -11,7 +10,6 @@
     user-select: none;
     -webkit-user-select: none;
 }
-
 .hamburger_button {
     display: none;
     width: 100%;
@@ -43,17 +41,13 @@
     height: 90px;
     padding: 0 40px;
     cursor: pointer;
-    transition: margin-top 0.2s;
+    transition: color 200ms;
+    color: #999999;
 }
 
-.control_item[active] {
-    color: #ababab;
+.control_item[active], .control_item:hover {
+    color: #d8d8d8;
 }
-
-.control_item:hover {
-    color: #ababab;
-}
-
 
 @media only screen and (max-width: 800px) {
     .hamburger_button {

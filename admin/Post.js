@@ -12,6 +12,7 @@ class Post {
             this.background_url = row["background_url"];
             this.thumb_url = row["thumb_url"];
             this.display = row["display"];
+            this.isTrashed = row["trash"];
             this.date = row["date"];
             this.tags = row["tags"] || [];
             this.buttons = row["buttons"] || [];

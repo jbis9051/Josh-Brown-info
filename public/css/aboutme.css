@@ -12,29 +12,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition-delay: 200ms;
 }
 
 .scrolled .top {
     height: 70vh;
     opacity: 0;
+    transition-delay: 0ms;
 }
 
 .who_am_i_wrapper {
     display: inline-flex;
     position: relative;
     top: -50px; /* TODO: media query to 100ish */
+    padding: 20px;
+    max-width: 820px;
 }
 
-.who_am_i {
-    font-family: monospace;
-    font-size: 11vw;
-    font-weight: bold;
-    overflow: hidden;
-    border-right: .15em solid orange;
-    white-space: nowrap;
-    margin: 0 auto;
-    letter-spacing: .15em;
-    animation: typing 3.5s steps(30, end), blink-caret .5s step-end infinite;
+.introduction {
+    font-size: 50px;
+    text-align: center;
+    color: #d1d1d1;
 }
 
 .instructions_wrapper {
@@ -76,25 +74,36 @@
 }
 
 .information-container {
-    background: #2b2b2b;
     width: 80%;
+    max-width: 855px;
     padding: 2% 5% 5%;
-    font-family: 'IBM Plex Mono', monospace;
     border-radius: 6px;
     box-sizing: border-box;
     transition: 500ms;
-    transition-delay: 200ms;
+    transition-delay: 100ms;
     opacity: 0;
     transform: scale(0.90);
+    color: #d1d1d1;
+    font-size: 30px;
 }
 
 .scrolled .information-container {
     opacity: 1;
     transform: scale(1);
+    transition-delay: 300ms;
 }
 
 @media only screen and (max-width: 800px) {
     .information-container {
         width: 95%;
+    }
+
+    .introduction {
+        font-size: 33px;
+    }
+
+    .information-container {
+        font-size: 30px;
+        text-align: center;
     }
 }

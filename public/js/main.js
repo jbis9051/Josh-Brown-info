@@ -32,7 +32,6 @@ function switchToTab(tabName) {
     }
 }
 
-document.querySelector('.hamburger_button').addEventListener("click", () => document.querySelector('.read_controls').toggleAttribute("active"));
 document.querySelectorAll('.read_controls span').forEach(e => e.addEventListener('click', (e) => switchToTab(e.target.getAttribute("data-tab"))));
 
 document.querySelectorAll('.right img').forEach(e => e.addEventListener("click", () => modalEnable(document.querySelector('#main_modal'), `<img src=${e.src}>`)));

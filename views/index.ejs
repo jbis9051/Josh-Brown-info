@@ -47,7 +47,6 @@ Especially to:
     <link type="text/css" rel="stylesheet" href="css/navBar.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="css/modal.css?v=2.0.0">
 
-    <link type="text/css" rel="stylesheet" href="css/welcomeWindow.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="css/loadText.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="css/nojs.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="css/index.css?v=2.0.0">
@@ -58,10 +57,13 @@ Especially to:
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind|Nunito:400,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+
+    <noscript class="nojs">Why no JavaScript?</noscript>
 <body>
-<noscript class="nojs">Why no JavaScript?</noscript>
 <div class="load_text">
     <div>
         <span>Josh Brown</span>
@@ -84,7 +86,7 @@ Especially to:
         <div data-tab-name="my_info" data-scroll="my_info" class="content_tab my_info fadeIn_1">
             <div class="top">
                 <div class="who_am_i_wrapper">
-                    <span class="who_am_i">Who am I?</span>
+                    <span class="introduction">Hello. I'm Josh, a student interested in cyber security.</span>
                 </div>
                 <div class="instructions_wrapper">
                     <span class="instructions">Scroll</span><span class="fa fa-angle-down"></span>
@@ -92,13 +94,22 @@ Especially to:
             </div>
             <div class="bottom">
                 <div class="information-container">
-                    <%- include('gen/aboutmeHTML'); %>
+                    My name is Josh Brown. I'm 16 years old and currently in 11th grade. I would like to go into cyber
+                    security, specifically application security.
                 </div>
             </div>
         </div>
         <!-- Resume Fun -->
-        <div data-tab-name="resume" class="content_tab resume_wrapper">
-            <%- include('gen/resumeHTML'); %>
+        <div data-tab-name="resume" class="content_tab resume_wrapper fadeIn_1">
+            <div class="project_list">
+                <%- include('gen/resumeHTML'); %>
+            </div>
+            <div class="resume-page">
+                <span class="x-button">&times;</span>
+                <div class="resume-content">
+                </div>
+                <span class="loading"></span>
+            </div>
         </div>
         <!-- Prof Resume -->
         <div data-tab-name="professional_resume" class="content_tab professional-resume">
@@ -107,14 +118,6 @@ Especially to:
         <!-- Contact -->
         <div data-tab-name="contact_page" class="content_tab contact_tab fadeIn_1">
             <%- include('contact_page'); %>
-        </div>
-    </div>
-    <div active id="welcome_side_banner" class="welcome_side_banner_wrapper fadeIn_1">
-        <div class="welcome_content">
-            <span class="modal_close_button">&times;</span>
-            <div class="welcome_message">
-                <%- include('gen/welcomeHTML'); %>
-            </div>
         </div>
     </div>
 </div>
@@ -132,10 +135,11 @@ Especially to:
         </div>
     </div>
 </div>
-<script src="js/welcomeWindow.js?v=2.0.0"></script>
 <script src="js/contact.js?v=2.0.0"></script>
 <script src="js/modals.js?v=2.0.0"></script>
 <script src="js/aboutme.js?v=2.0.0"></script>
+<script src="js/controls.js?v=1.0.0"></script>
+<script src="js/resume.js?v=1.0.0"></script>
 <script src="js/main.js?v=2.0.0"></script>
 </body>
 </html>

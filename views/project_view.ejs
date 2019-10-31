@@ -1,0 +1,27 @@
+<div class="info">
+    <h2 class="project_title"><%- project.title %></h2>
+    <span class="project_date"><%= project.time_frame %></span>
+    <div class="project_description"><%- project.getHTMLDescription() %></div>
+</div>
+<div class="quotes">
+    <% if(project.quotes.length > 0){ %>
+        <h4 class="testimonial_title">Testimonials</h4>
+        <div class="testimonial_wrapper">
+            <% project.quotes.forEach(quote => { %>
+                <span class="person"><%- quote.name %></span>
+                <span class="quote"><%- quote.quote %></span>
+            <% }); %>
+        </div>
+    <% } %>
+</div>
+<div class="buttons">
+    <% project.buttons.forEach(button => { %>
+        <a target="_blank"
+           class="product_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>
+           href="<%= button.hyperlink %>">
+            <%= button.content %>
+        </a>
+    <% }); %>
+</div>
+<img class="project_bg" src="<%= project.background_url %>">
+<img class="project_thumb" src="<%= project.thumb_url %>">
