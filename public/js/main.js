@@ -33,7 +33,3 @@ function switchToTab(tabName) {
 }
 
 document.querySelectorAll('.read_controls span').forEach(e => e.addEventListener('click', (e) => switchToTab(e.target.getAttribute("data-tab"))));
-
-document.querySelectorAll('.right img').forEach(e => e.addEventListener("click", () => modalEnable(document.querySelector('#main_modal'), `<img src=${e.src}>`)));
-document.querySelectorAll('.game').forEach(e => e.addEventListener("click", () => modalEnable(document.querySelector('#game_modal'), `<embed id="the_game" src="${e.getAttribute('data-url')}" quality="high" pluginspage="//www.macromedia.com/go/getflashplayer" play="true" loop="true" wmode="transparent" allowfullscreen="true" flashvars="" type="application/x-shockwave-flash" align="middle" height="480px" width="640px">`)));
-

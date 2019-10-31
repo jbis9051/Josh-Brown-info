@@ -18,6 +18,6 @@ module.exports = async () => {
         const post = posts[i];
         resumeHTML += await ejs.renderFile(pathToProjectComponent, {post: post, i: i});
     }
-    const resumePromise = fs.appendFile(genPath('resumeHTML.ejs'), resumeHTML);
+    const resumePromise = fs.writeFile(genPath('resumeHTML.ejs'), resumeHTML);
     return await Promise.all([aboutmePromise, welcomePromise, resumePromise, Main.updateDate("last_publish_date", "1")]);
 };
