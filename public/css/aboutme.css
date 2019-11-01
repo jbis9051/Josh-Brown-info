@@ -93,6 +93,16 @@
     transition-delay: 300ms;
 }
 
+#to_portfolio {
+    display: block;
+    margin: 15px auto 0;
+    border: 0.25rem;
+}
+
+#to_portfolio:hover {
+    background: #212121;
+}
+
 @media only screen and (max-width: 800px) {
     .information-container {
         width: 95%;

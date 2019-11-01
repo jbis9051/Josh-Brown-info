@@ -33,3 +33,4 @@ function switchToTab(tabName) {
 }
 
 document.querySelectorAll('.read_controls span').forEach(e => e.addEventListener('click', (e) => switchToTab(e.target.getAttribute("data-tab"))));
+document.querySelector('#to_portfolio').addEventListener("click", () => switchToTab('resume'));
