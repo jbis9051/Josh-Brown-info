@@ -137,7 +137,7 @@
     document.querySelectorAll('.list-table').forEach(el => {
         el.addEventListener("click", evt => {
             if (evt.target.classList.contains("x-button")) {
-                _handleXButton(evt)
+                _handleXButton(evt);
                 return;
             }
             if (evt.target.classList.contains("up-button")) {
