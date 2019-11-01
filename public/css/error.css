@@ -11,7 +11,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.product_button {
+
+.standard_button {
     background-color: rgba(46, 46, 46, 0.85);
     text-decoration: none;
     border: none;
@@ -20,7 +21,8 @@ body {
     font-size: 15px;
     color: white;
 }
-.product_button:hover {
+
+.standard_button:hover {
     transform: scale(1.2);
     background: rgba(36, 36, 36, 0.85);
 }

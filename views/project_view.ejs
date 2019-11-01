@@ -18,12 +18,12 @@
     <% project.buttons.forEach(button => {
     if(button.hyperlink){ %>
         <a target="_blank"
-           class="product_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>
+           class="standard_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>
            href="<%= button.hyperlink %>">
             <%= button.content %>
         </a>
     <% } else { %>
-        <span class="product_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>>
+        <span class="standard_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>>
             <%= button.content %>
         </span>
     <% }

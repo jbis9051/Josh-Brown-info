@@ -97,10 +97,7 @@
     display: block;
     margin: 15px auto 0;
     border: 0.25rem;
-}
-
-#to_portfolio:hover {
-    background: #212121;
+    padding: 13px 22px;
 }
 
 @media only screen and (max-width: 800px) {
