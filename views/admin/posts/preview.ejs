@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="/css/standards.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="/css/resume.css?v=2.0.0">
     <link type="text/css" rel="stylesheet" href="/css/index.css?v=2.0.0">
     <title>Preview Resume</title>
@@ -13,9 +14,17 @@
     }
 </style>
 <body>
-<% posts.filter(post => post.display).forEach((post, i) => { %>
-    <%- include('../components/project.ejs',{post: post, i: i}); %>
-<% }); %>
-<div class="parallax more_soon fadeIn_5"><!--span class="text">And more to come...</span--></div>
+<div class="project_list">
+    <% posts.filter(post => post.display).forEach((post, i) => { %>
+        <%- include('../components/project.ejs',{post: post, i: i}); %>
+    <% }); %>
+</div>
 </body>
+<div class="resume-page">
+    <span class="x-button">&times;</span>
+    <div class="resume-content">
+    </div>
+    <div class="loading-wrapper"><span class="loading"></span></div>
+</div>
+<script src="/js/resume.js?v=1.0.0"></script>
 </html>

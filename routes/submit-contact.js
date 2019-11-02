@@ -29,7 +29,7 @@ Message:
 ${req.body.message}           
 `
         };
-        //TODO use constact class
+        //TODO use contact class
         conn.execute('INSERT INTO contact_form_data (ip,name,email,message) VALUE (?,?,?,?)', [ip, req.body.name, req.body.email, req.body.message]).then(e => res.send({status: "success"}));
         mailgun.messages().send(data, (error, body) => {
             if (error) {

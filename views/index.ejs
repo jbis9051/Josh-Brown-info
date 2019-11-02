@@ -84,7 +84,7 @@ Especially to:
         <div data-tab-name="my_info" data-scroll="my_info" class="content_tab my_info fadeIn_1">
             <div class="top">
                 <div class="who_am_i_wrapper">
-                    <span class="introduction">Hello. I'm Josh, a student interested in cyber security.</span>
+                    <span class="introduction"><%- include('gen/top.ejs') %></span>
                 </div>
                 <div class="instructions_wrapper">
                     <span class="instructions">Scroll</span><span class="fa fa-angle-down"></span>
@@ -92,8 +92,7 @@ Especially to:
             </div>
             <div class="bottom">
                 <div class="information-container">
-                    My name is Josh Brown. I'm 16 years old and currently in 11th grade. I would like to go into cyber
-                    security, specifically application security.
+                    <%- include('gen/bottom.ejs') %>
                     <button class="standard_button" id="to_portfolio">View My Portfolio</button>
                 </div>
             </div>

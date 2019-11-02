@@ -9,18 +9,18 @@ const Main = require('../../admin/Main');
 
 router.get('/edit', csrfProtection, async function (req, res, next) {
     res.render('admin/main/edit', {
-        aboutMeMarkdown: await Main.val("about"),
-        welcomeMarkdown: await Main.val("welcome"),
+        top: await Main.val("aboutme_top"),
+        bottom: await Main.val("aboutme_bottom"),
         csrfToken: req.csrfToken()
     });
 });
 router.post('/save', csrfProtection, async function (req, res, next) {
-    if (!req.body.aboutme || !req.body.welcome) {
+    if (!req.body.top || !req.body.bottom) {
         res.send('Invalid body');
     }
-    await Main.val("about", req.body.aboutme);
-    await Main.val("welcome", req.body.welcome);
-    res.redirect(`/admin/posts`);
+    await Main.val("aboutme_top", req.body.top);
+    await Main.val("aboutme_bottom", req.body.bottom);
+    res.redirect(`/admin/main/edit`);
 });
 router.get('/preview', async function (req, res, next) {
     res.render('admin/main/preview', {posts: await Post.getDisplayed()});
