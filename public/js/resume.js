@@ -34,5 +34,4 @@ function handleOverflows() {
     });
 }
 
-document.querySelector('#portfolio').addEventListener('click', handleOverflows);
 window.addEventListener('resize', handleOverflows);

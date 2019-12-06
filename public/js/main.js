@@ -30,6 +30,9 @@ function switchToTab(tabName) {
     } else {
         MyInfo.removeListener();
     }
+    if (tabName === "resume") {
+        handleOverflows();
+    }
 }
 
 document.querySelectorAll('.read_controls span').forEach(e => e.addEventListener('click', (e) => switchToTab(e.target.getAttribute("data-tab"))));
