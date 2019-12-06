@@ -19,7 +19,7 @@
     "mailgun-js": "^0.22.0",
     "morgan": "~1.9.1",
     "mysql2": "^1.7.0",
-    "showdown": "^1.9.0"
+    "showdown": "^1.9.1"
   },
   "devDependencies": {
     "html-entities": "^1.2.1",

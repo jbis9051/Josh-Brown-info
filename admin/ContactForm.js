@@ -34,12 +34,12 @@ class ContactForm {
              title: "Untitled",
              time_frame: "October of 2019",
              description: "",
-             background_url: null,
+             secondary_image_url: null,
              thumb_url: null,
              display: false
          };
          const row = Object.assign(defaults, input);
-         const [results] = await conn.execute("INSERT INTO `contactForms` (`title`,`time_frame`,`description`,`background_url`,`thumb_url`,`display`) VALUES (?,?,?,?,?,?)", [row.title, row.time_frame, row.description, row.background_url, row.thumb_url, row.display]);
+         const [results] = await conn.execute("INSERT INTO `contactForms` (`title`,`time_frame`,`description`,`secondary_image_url`,`thumb_url`,`display`) VALUES (?,?,?,?,?,?)", [row.title, row.time_frame, row.description, row.secondary_image_url, row.thumb_url, row.display]);
          return await Post.FromId(results.insertId);*/
     }
 }

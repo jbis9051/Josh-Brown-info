@@ -96,7 +96,7 @@ router.post('/:id/save', csrfProtection, async function (req, res, next) {
         });
     }
     await post.update(req.body);
-    res.redirect(`/admin/posts`);
+    res.redirect(`/admin/posts/${req.params.id}/edit`);
 });
 router.post('/order', csrfProtection, async function (req, res, next) {
     const posts = await Post.getNonTrashed();

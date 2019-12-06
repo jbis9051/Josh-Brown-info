@@ -9,7 +9,7 @@ class Post {
             this.title = row["title"];
             this.time_frame = row["time_frame"];
             this.description = row["description"];
-            this.background_url = row["background_url"];
+            this.secondary_image_url = row["secondary_image_url"];
             this.thumb_url = row["thumb_url"];
             this.display = row["display"];
             this.isTrashed = row["trash"];
@@ -71,11 +71,11 @@ class Post {
     }
 
     update(row) {
-        this.title = row["title"] || this.title;
-        this.time_frame = row["time_frame"] || this.time_frame;
-        this.description = row["description"] || this.description;
-        this.background_url = row["background_url"] || this.background_url;
-        this.thumb_url = row["thumb_url"] || this.thumb_url;
+        this.title = row["title"];
+        this.time_frame = row["time_frame"];
+        this.description = row["description"];
+        this.secondary_image_url = row["secondary_image_url"];
+        this.thumb_url = row["thumb_url"];
         if (row["display"] !== undefined) {
             this.display = !!row["display"]
         }
@@ -168,7 +168,7 @@ class Post {
     }
 
     _sync() {
-        return conn.execute("UPDATE `posts` SET `title` = ?,`time_frame` = ?,`description` = ?,`background_url` = ?,`thumb_url` = ?,`display` = ? WHERE id = ?", [this.title, this.time_frame, this.description, this.background_url, this.thumb_url, this.display, this.id]);
+        return conn.execute("UPDATE `posts` SET `title` = ?,`time_frame` = ?,`description` = ?,secondary_image_url = ?,`thumb_url` = ?,`display` = ? WHERE id = ?", [this.title, this.time_frame, this.description, this.secondary_image_url, this.thumb_url, this.display, this.id]);
     }
 
     /**
@@ -181,12 +181,12 @@ class Post {
             title: "Untitled",
             time_frame: "October of 2019",
             description: "",
-            background_url: null,
+            secondary_image_url: null,
             thumb_url: null,
             display: false
         };
         const row = Object.assign(defaults, input);
-        const [results] = await conn.execute("INSERT INTO `posts` (`title`,`time_frame`,`description`,`background_url`,`thumb_url`,`display`) VALUES (?,?,?,?,?,?)", [row.title, row.time_frame, row.description, row.background_url, row.thumb_url, row.display]);
+        const [results] = await conn.execute("INSERT INTO `posts` (`title`,`time_frame`,`description`,secondary_image_url,`thumb_url`,`display`) VALUES (?,?,?,?,?,?)", [row.title, row.time_frame, row.description, row.secondary_image_url, row.thumb_url, row.display]);
         return await Post.FromId(results.insertId);
     }
 
