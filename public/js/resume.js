@@ -18,3 +18,21 @@ document.querySelector('.resume-page .x-button').addEventListener("click", () =>
     document.querySelector('.resume-content').classList.remove("loaded");
     document.querySelector('.resume-page').classList.remove("active");
 });
+
+const projects = document.querySelectorAll('.project_item');
+
+
+function handleOverflows() {
+    projects.forEach(project => {
+        const wrapper = project.querySelector('.short_info');
+        const text = project.querySelector('.project_title');
+        if (text.clientHeight > wrapper.clientHeight) {
+            wrapper.classList.add("overflow");
+        } else {
+            wrapper.classList.remove("overflow");
+        }
+    });
+}
+
+document.querySelector('#portfolio').addEventListener('click', handleOverflows);
+window.addEventListener('resize', handleOverflows);
