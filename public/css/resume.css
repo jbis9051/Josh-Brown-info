@@ -155,7 +155,9 @@
     transition: height ease-in-out 400ms;
     transition-delay: 0ms;
     box-sizing: border-box;
-    padding: 12px 16px 0px;
+    display: flex;
+    padding: 50px 16px 0px;
+    align-items: flex-start;
 }
 
 .resume-page .resume-content.loaded {
@@ -164,8 +166,14 @@
     overflow: auto;
 }
 
-.info {
-    width: 50%;
+.text {
+    flex-basis: 50%;
+    padding: 10px;
+}
+
+.images {
+    padding: 10px;
+    flex-basis: 50%;
 }
 
 .info .project_title {
@@ -184,9 +192,10 @@
 }
 
 .resume-content img {
-    width: 35%;
-    margin: 20px 0;
+    width: 95%;
+    padding: 5%;
     display: inline-block;
+    box-sizing: border-box;
 }
 
 .testimonial_title {
@@ -229,7 +238,15 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .info {
+    .resume-content {
+        display: block;
+    }
+
+    .text {
+        width: 100%;
+    }
+
+    .images {
         width: 100%;
     }
 
