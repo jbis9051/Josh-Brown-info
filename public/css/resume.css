@@ -156,14 +156,17 @@
     transition-delay: 0ms;
     box-sizing: border-box;
     display: flex;
-    padding: 50px 16px 0px;
+    padding: 0;
     align-items: flex-start;
+    margin: 50px 16px 0px;
 }
 
 .resume-page .resume-content.loaded {
     transition-delay: 400ms;
     height: 100%;
     overflow: auto;
+    padding: 50px 16px 0px;
+    margin: 0;
 }
 
 .text {
