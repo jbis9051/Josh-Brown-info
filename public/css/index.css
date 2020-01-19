@@ -58,15 +58,27 @@ body {
 .content_tab {
     display: none;
     opacity: 0;
-    transition: opacity 500ms;
+    transition: opacity 200ms;
     position: absolute;
     height: 100%;
     width: 100%;
 }
 
+.content_tab[transition] {
+    display: block;
+    opacity: 0;
+}
+
 .content_tab[active] {
+    transition: opacity 1000ms;
     display: block;
     opacity: 1;
+    /*
+    -webkit-animation: fade-in 500ms ease-in;
+        animation: fade-in 500ms ease-in;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;*/
+
 }
 
 

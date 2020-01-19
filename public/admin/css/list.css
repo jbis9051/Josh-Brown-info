@@ -1,4 +1,4 @@
-h1 {
+.st-h1 {
     text-align: center;
 }
 
@@ -8,7 +8,7 @@ h1 {
     border: 1px solid #dddddd;
 }
 
-table {
+.st-table {
     width: 100%;
     border-collapse: collapse;
     table-layout: fixed;
@@ -16,16 +16,16 @@ table {
 }
 
 @media screen and (min-width: 1200px) {
-    table {
+    .st-table {
         font-size: 16px;
     }
 }
 
-thead {
+.st-table thead {
     border-bottom: 1px solid #dddddd;
 }
 
-td {
+.st-table td {
     padding: 10px 10px;
 }
 
@@ -41,15 +41,16 @@ td {
     width: 25%;
 }
 
-.item {
+.st-table .item {
     border-bottom: 1px solid #dddddd;
     text-align: center;
 }
 
-.item:hover {
+.st-table .item:hover {
     background: #e5e5e5;
 }
-.item-title {
+
+.st-table .item-title {
     color: #0b5e99;
     font-weight: bold;
 }

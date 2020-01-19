@@ -85,6 +85,7 @@ input:focus, textarea:focus, input:hover, textarea:hover {
 
 .image_selector {
     display: flex;
+    align-items: center;
     margin-bottom: 20px;
 }
 

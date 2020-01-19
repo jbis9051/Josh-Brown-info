@@ -1,0 +1,17 @@
+<div class="path-wrapper"><span class="path"><%= path + "/" %></span></div>
+<table>
+    <thead>
+    <tr>
+        <th class="file-name">Name</th>
+        <th class="file-type">Type</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% files.forEach(file => { %>
+        <tr class="file-item <%= file.isDirectory() ? "dir" : "file" %>">
+            <td class="file-name-text"><%= file.name %></td>
+            <td class="file-type-text"><%= file.isDirectory() ? "Directory" : "File" %></td>
+        </tr>
+    <% }); %>
+    </tbody>
+</table>

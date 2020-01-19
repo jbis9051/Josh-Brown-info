@@ -5,6 +5,7 @@
     <% include ../components/head.ejs %>
     <link rel="stylesheet" href="/admin/css/list.css">
     <link rel="stylesheet" href="/admin/css/edit.css">
+    <link rel="stylesheet" href="/admin/css/fileSelect.css">
     <title><%= post.title %></title>
 </head>
 <body>
@@ -32,19 +33,21 @@
             <span class="image_selector_title">Thumbnail</span>
             <div class="image_selector">
                 <img src="<%= post.thumb_url %>">
-                <input type="text" name="thumb_url" value="<%= post.thumb_url %>">
+                <input type="text" name="thumb_url" id="thumb_input" value="<%= post.thumb_url %>">
+                <button type="button" data-input="thumb_input" class="btn open-file-select">Select</button>
             </div>
-            <span class="image_selector_title">Background / Parallax</span>
+            <span class="image_selector_title">Second Image</span>
             <div class="image_selector">
                 <img src="<%= post.secondary_image_url %>">
-                <input type="text" name="secondary_image_url" value="<%= post.secondary_image_url %>">
+                <input type="text" id="second_input" name="secondary_image_url" value="<%= post.secondary_image_url %>">
+                <button type="button" data-input="second_id" class="btn open-file-select">Select</button>
             </div>
         </div>
         <div class="section list-section">
             <h2>Buttons</h2>
             <button type="button" class="btn new-button" id="button_new">New</button>
             <div class="table-wrapper">
-                <table class="list-table">
+                <table class="list-table st-table">
                     <thead>
                     <tr>
                         <th>Content</th>
@@ -100,6 +103,7 @@
     </form>
     <a href="/admin/posts" class="back">← Back To Posts</a>
 </div>
+<script src="/admin/js/fileSelect.js"></script>
 <script>
     document.querySelector('.delete').addEventListener("click", evt => {
         if (!confirm("Are you sure you would like to move this post to trash?")) {
@@ -182,6 +186,17 @@
             } else {
                 evt.target.setAttribute("zoom", "");
             }
+        });
+    });
+
+    document.querySelectorAll('.open-file-select').forEach(el => {
+        const input = document.querySelector('#' + el.getAttribute("data-input"));
+        el.addEventListener('click', _ => {
+            FileSelect.getFile()
+                .then(val => {
+                    input.value = "https://joshbrown.info/" + val;
+                })
+                .catch();
         });
     });
 </script>
