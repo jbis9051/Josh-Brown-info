@@ -2,7 +2,13 @@ setTimeout(startExecution, 2500);
 
 function startExecution() {
     if (window.location.hash.length) {
-        switchToTab(window.location.hash.replace("#", ""));
+        const matches = window.location.hash.match(/^#(.+)\/([\d+])$/);
+        if (matches) {
+            switchToTab(matches[1]);
+            switchResumeToId(parseInt(matches[2]));
+        } else {
+            switchToTab(window.location.hash.replace("#", ""));
+        }
     } else {
         switchToTab('my_info');
     }
