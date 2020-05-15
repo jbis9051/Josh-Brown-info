@@ -21,7 +21,7 @@ function switchResumeToId(id) {
 }
 
 document.querySelector('.resume-page .x-button').addEventListener("click", () => {
-    window.location.hash = window.location.hash.replace(/\/[\d+]$/, "");
+    window.location.hash = window.location.hash.replace(/\/\d+$/, "");
     document.querySelector('.resume-content').classList.remove("loaded");
     document.querySelector('.resume-page').classList.remove("active");
 });

@@ -2,7 +2,7 @@ setTimeout(startExecution, 2500);
 
 function startExecution() {
     if (window.location.hash.length) {
-        const matches = window.location.hash.match(/^#(.+)\/([\d+])$/);
+        const matches = window.location.hash.match(/^#(.+)\/(\d+)$/);
         if (matches) {
             switchToTab(matches[1]);
             switchResumeToId(parseInt(matches[2]));
@@ -25,6 +25,7 @@ function switchToTab(tabName) {
     if (selector.hasAttribute("active")) {
         return;
     }
+    document.querySelector('.read_controls').removeAttribute("active");
     const elements = [selector, document.querySelector(`.content_tab[data-tab-name="${tabName}"]`)];
     if (!elements) {
         return
