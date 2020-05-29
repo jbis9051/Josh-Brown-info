@@ -19,6 +19,7 @@
         <% project.buttons.forEach(button => {
         if(button.hyperlink){ %>
             <a target="_blank"
+               rel="noreferrer noopener"
                class="standard_button <%= button.extra_class || "" %>" <%- (button.data_custom) ? `data-custom="${button.data_custom}"` : "" %>
                href="<%= button.hyperlink %>">
                 <%= button.content %>
