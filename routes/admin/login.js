@@ -29,7 +29,7 @@ router.post('/', async function (req, res, next) {
         expires: date,
         httpOnly: true,
         path: '/admin',
-        secure: req.secure,
+        secure: false /*req.secure*/,
         sameSite: 'Strict',
     });
     res.redirect(req.query.r || "/admin");
