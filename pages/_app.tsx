@@ -35,7 +35,7 @@ function App({Component, pageProps}: AppProps) {
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <noscript className="nojs">Why no JavaScript?</noscript>
             </Head>
-            <NextNprogress color={"#d7d7d7"} options={{showSpinner: false}} stopDelayMs={200}
+            <NextNprogress color={"#d1d1d1"} options={{showSpinner: false}} stopDelayMs={200}
                            height={3}/>
             <Component {...pageProps}/>
         </>
