@@ -14,7 +14,7 @@ function App({Component, pageProps}: AppProps) {
                 <meta property="og:type" content="website"/>
                 <meta property="og:url" content="https://joshbrown.info"/>
                 <meta name="description"
-                      content="Josh Brown's portfolio and resume site containing many of the past project he has been involved in.  The website also contains information on Josh Brown and how you can contact him."/>
+                      content="Josh Brown's site containing his resume and contact information."/>
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
                 <link href="https://fonts.googleapis.com/css?family=Lato:400,500,700,800,900&display=swap"
                       rel="stylesheet"/>
@@ -33,7 +33,7 @@ function App({Component, pageProps}: AppProps) {
                 <meta name="theme-color" content="#ffffff"/>
                 {/* End Favicon */}
                 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-                <noscript className="nojs">Why no JavaScript?</noscript>
+                <noscript className="nojs">Please enable JavaScript</noscript>
             </Head>
             <NextNprogress color={"#d1d1d1"} options={{showSpinner: false}} stopDelayMs={200}
                            height={3}/>
