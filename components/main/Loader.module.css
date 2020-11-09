@@ -1,0 +1,48 @@
+.textWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeOut ease-in-out 500ms;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+}
+
+.text {
+    text-align: center;
+    font-family: GoboldBold, sans-serif;
+    color: white;
+    font-size: 9vw;
+}
+
+.bar {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    height: 4px;
+    background: white;
+    animation: underline ease-in-out 2s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes underline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}

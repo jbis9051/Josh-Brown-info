@@ -1,0 +1,46 @@
+.container {
+    background: white;
+    border: 1px solid #dddddd;
+    max-width: 1000px;
+    padding: 30px;
+    box-sizing: border-box;
+    color: #23282d;
+    margin: 50px auto 0;
+}
+
+.header {
+    text-align: center;
+}
+
+.fromLabel {
+    font-weight: bold;
+}
+
+.fromContent {
+    color: #0b5e99;
+    font-weight: bold;
+}
+
+.fromContent:hover {
+    color: #0e98f9;
+}
+
+.itemWrapper {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.backButton {
+    font-size: 18px;
+    background: #0d78c3;
+    border-radius: 0.25rem;
+    padding: 5px 25px;
+    color: #f8f8f8;
+    border: none;
+    display: inline-block;
+    margin: 0 auto;
+    height: 22px;
+    box-sizing: content-box;
+    line-height: 22px;
+}

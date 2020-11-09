@@ -1,0 +1,50 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: black;
+    color: white;
+    overflow: hidden;
+}
+
+#__next {
+    height: 100%;
+    width: 100%;
+}
+
+a {
+    color: unset;
+    text-decoration: unset;
+}
+
+/* scrollbar adapted from --> https://codepen.io/devstreak/pen/dMYgeO */
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 1);
+}
+
+*::-webkit-scrollbar {
+    width: 8px;
+    background-color: #000000;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #212121;
+}
+
+@font-face {
+    font-family: GoboldBold;
+    font-display: swap;
+    src: url("/assets/fonts/Gobold%20Bold.woff") format("woff");
+}
+
+
+
