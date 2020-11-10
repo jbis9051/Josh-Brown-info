@@ -24,32 +24,30 @@ export default function message() {
             const json = await resp.json();
             setItem(json.contactMessage);
         });
-    }, [auth])
-
-    if (!auth) {
-        return null;
-    }
+    }, [auth]);
 
     return (
         <AdminLayout>
-            <div className={styles.container}>
-                {
-                    item && (
-                        <div className={styles.itemWrapper}>
+            {auth && (
+                <div className={styles.container}>
+                    {
+                        item && (
+                            <div className={styles.itemWrapper}>
                             <span className={styles.from}>
                                 <span className={styles.fromLabel}>From: </span>
                                 <a href={"mailto:" + item.email}
                                    className={styles.fromContent}>{`${item.name} <${item.email}>`}</a>
                             </span>
-                            <p className={styles.message}>{item.message}</p>
-                        </div>
-                    )
-                }
-                {
-                    failed && <span>Error Occurred While Fetching Item</span>
-                }
-                <Link href={"/admin/contact"}><a className={styles.backButton}>Back</a></Link>
-            </div>
+                                <p className={styles.message}>{item.message}</p>
+                            </div>
+                        )
+                    }
+                    {
+                        failed && <span>Error Occurred While Fetching Item</span>
+                    }
+                    <Link href={"/admin/contact"}><a className={styles.backButton}>Back</a></Link>
+                </div>
+            )}
         </AdminLayout>
     );
 }
