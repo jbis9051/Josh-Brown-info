@@ -20,4 +20,4 @@ Published!
 $ npm run start
 ```
 
-Website will be on [http://localhost:9051](http://localhost:9051). Why `9051`? Because "ninety-fifty-one" (not "nine-thousand-fifty-one") is my favorite number.
+Website will be on [http://localhost:6969](http://localhost:6969). Why `6969`? Because "sixty-nine" (not "four-twenty") is my favorite number.
