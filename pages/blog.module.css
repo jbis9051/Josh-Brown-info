@@ -1,0 +1,17 @@
+.header {
+    text-align: center;
+}
+
+.articleWrapper {
+    padding: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+    max-width: 100%;
+}
+
+.loading {
+    text-align: center;
+    display: block;
+}

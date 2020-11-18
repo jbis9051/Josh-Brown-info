@@ -33,6 +33,7 @@ export const NavBar: React.FunctionComponent = () => {
                 <ul>
                     <NavItem page={"/"}>About Me</NavItem>
                     <li><a href="/assets/files/resume.pdf" target="_blank">Professional Resume</a></li>
+                    <NavItem page={"/blog"}>Blog</NavItem>
                     <NavItem page={"/contact"}>Contact</NavItem>
                 </ul>
             </nav>

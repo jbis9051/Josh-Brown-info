@@ -1,0 +1,45 @@
+.articleWrapper {
+    background: #1a2634;
+    border-radius: 9px;
+    margin: 10px 0;
+    padding: 15px;
+}
+
+.metaWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.userName:hover {
+    color: #9896ff;
+}
+
+.userImageWrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.userImage {
+    height: 100%;
+    width: 100%;
+}
+
+.metaContent {
+    display: flex;
+    flex-direction: column;
+}
+
+.articleTitle:hover {
+    color: #9896ff;
+}
+
+.articleDate {
+    color: #848484;
+}
+
+.articleDescription {
+    color: #9d9d9d;
+}
