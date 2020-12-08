@@ -32,7 +32,7 @@ export const NavBar: React.FunctionComponent = () => {
             <nav className={cn(styles.navBar, {[styles.navActive]: open})}>
                 <ul>
                     <NavItem page={"/"}>About Me</NavItem>
-                    <li><a href="/assets/files/resume.pdf" target="_blank">Professional Resume</a></li>
+                    <li><a href="/assets/files/resume.pdf" target="_blank">Resume</a></li>
                     <NavItem page={"/blog"}>Blog</NavItem>
                     <NavItem page={"/contact"}>Contact</NavItem>
                 </ul>
