@@ -2,7 +2,7 @@ import {useRouter} from "next/router";
 import styles from './[message].module.css';
 import {AdminLayout} from "../../../components/admin/AdminLayout";
 import React, {useEffect, useState} from "react";
-import {useAuth} from "../../../hoc/useAuth";
+import {useAuth} from "../../../hooks/useAuth";
 import {ContactMessage} from "../../../server/model/ContactMessage";
 import Link from "next/link";
 

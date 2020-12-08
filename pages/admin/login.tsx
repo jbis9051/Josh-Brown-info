@@ -1,4 +1,4 @@
-import {useAuth} from "../../hoc/useAuth";
+import {useAuth} from "../../hooks/useAuth";
 import React, {FormEvent, useEffect, useState} from "react";
 import styles from './login.module.css';
 import {FormError} from "../../components/main/FormError";

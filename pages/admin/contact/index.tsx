@@ -1,4 +1,4 @@
-import {useAuth} from "../../../hoc/useAuth";
+import {useAuth} from "../../../hooks/useAuth";
 import React, {useEffect, useState} from "react";
 import {ContactMessage} from "../../../server/model/ContactMessage";
 import styles from './index.module.css';

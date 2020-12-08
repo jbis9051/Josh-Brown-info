@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {useAuth} from "../../hoc/useAuth";
+import {useAuth} from "../../hooks/useAuth";
 import {useRouter} from "next/router";
 
 export default function Index() {
