@@ -1,6 +1,6 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {withRateLimit} from "../../server/helper/withRateLimit";
-import config from "../../server/config";
+import config from "../../config";
 
 function contact(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'GET') {

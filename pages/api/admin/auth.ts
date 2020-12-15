@@ -6,7 +6,6 @@ const auth: AuthNextHandler = (req: NextApiRequest, res: NextApiResponse, {user}
         user: {
             id: user.id,
             username: user.username,
-            type: user.type
         }
     });
 }

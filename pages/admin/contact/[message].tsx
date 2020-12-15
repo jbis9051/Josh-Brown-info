@@ -3,13 +3,13 @@ import styles from './[message].module.css';
 import {AdminLayout} from "../../../components/admin/AdminLayout";
 import React, {useEffect, useState} from "react";
 import {useAuth} from "../../../hooks/useAuth";
-import {ContactMessage} from "../../../server/model/ContactMessage";
 import Link from "next/link";
+import Message from "../../../server/models/Message";
 
 export default function message() {
     const auth = useAuth();
     const router = useRouter()
-    const [item, setItem] = useState<ContactMessage | null>(null);
+    const [item, setItem] = useState<Message | null>(null);
     const [failed, setFailed] = useState(false);
 
     useEffect(() => {

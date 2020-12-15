@@ -1,24 +1,24 @@
 import {useAuth} from "../../../hooks/useAuth";
 import React, {useEffect, useState} from "react";
-import {ContactMessage} from "../../../server/model/ContactMessage";
 import styles from './index.module.css';
 import Link from "next/link";
 import {AdminLayout} from "../../../components/admin/AdminLayout";
+import Message from "../../../server/models/Message";
 
-const ContactMessageItem: React.FunctionComponent<{ message: ContactMessage }> = ({message}) => {
+const ContactMessageItem: React.FunctionComponent<{ message: Message }> = ({message}) => {
     return (
         <tr className={styles.item}>
             <td>{message.id}</td>
             <td className={styles.itemTitle}><Link href={"/admin/contact/" + message.id}><a>{message.name}</a></Link>
             </td>
-            <td className={styles.date}>{message.date.toLocaleString()}</td>
+            <td className={styles.date}>{message.created.toLocaleString()}</td>
         </tr>
     )
 }
 
 export default function indexContact() {
     const auth = useAuth();
-    const [contactMessages, setContactMessages] = useState<ContactMessage[]>([]);
+    const [contactMessages, setContactMessages] = useState<Message[]>([]);
 
     useEffect(() => {
         if (!auth) {

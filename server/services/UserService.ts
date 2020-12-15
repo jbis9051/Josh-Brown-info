@@ -1,13 +1,14 @@
-import {User} from "../model/User";
 import crypto from 'crypto';
 import bcrypt from 'bcrypt';
+import User from "../models/User";
+import UserToken from "../models/UserToken";
 
 export class UserService {
     static async getUserFromToken(token: string) {
         if (!token) {
             return null;
         }
-        const tokenData = await User.getToken(token);
+        const tokenData = await UserToken.query().findOne({token}).withGraphFetched('user');
         if (!tokenData) {
             return null;
         }
@@ -17,28 +18,20 @@ export class UserService {
         if (!crypto.timingSafeEqual(Buffer.from(token), Buffer.from(tokenData.token))) {
             return null;
         }
-        return await User.getUserFromId(tokenData.user_id) as User;
+        return tokenData.user;
     }
 
     static async isValidCredentials(username: string, password: string) {
-        const userHash = await User.getPassword(username);
-        if (!userHash) {
+        const user = await User.query().findOne({username});
+        if (!user) {
             return false;
         }
-        return await bcrypt.compare(password, userHash);
-    }
-
-    static getUserFromUsername(username: string) {
-        return User.getUserFromUsername(username);
+        return await bcrypt.compare(password, user.password);
     }
 
     static async generateToken(user: User) {
         const token = crypto.randomBytes(64).toString('hex');
-        await User.insertToken(token, user);
+        await user.$relatedQuery<UserToken>('tokens').insert({token});
         return token;
-    }
-
-    static logout(token: string) {
-        return User.removeToken(token);
     }
 }

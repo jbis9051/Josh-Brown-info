@@ -1,9 +1,9 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {AuthNextHandler, withAuthRequired} from "../../../server/helper/withAuthRequired";
-import {UserService} from "../../../server/services/UserService";
+import UserToken from "../../../server/models/UserToken";
 
 const logout: AuthNextHandler = async (req: NextApiRequest, res: NextApiResponse, {token}) => {
-    await UserService.logout(token);
+    await UserToken.query().delete().where({token});
     res.status(200).end();
 }
 export default withAuthRequired(logout);
