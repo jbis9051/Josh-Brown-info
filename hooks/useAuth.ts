@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
-import {User} from "../model/User";
 import router from "next/router";
+import User from "../server/models/User";
 
 class Auth {
     token: string;
