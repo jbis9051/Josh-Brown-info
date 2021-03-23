@@ -14,7 +14,7 @@ export default function Home() {
                     <div className={styles.imageWrapper}>
                         <img className={styles.image} src={"/assets/images/me/profile.png"} alt={"Profile Picture"}/>
                     </div>
-                    <span className={styles.subText}>Hello. I'm Josh, a student interested in cybersecurity.</span>
+                    <span className={styles.subText}>Hello. I'm Josh, a student interested in cryptography.</span>
                 </div>
             </div>
         </Layout>
