@@ -10,7 +10,7 @@ html, body {
 }
 
 body {
-    background: black;
+    background: linear-gradient(to bottom, black, #0a0a0a);
     color: white;
     overflow: hidden;
 }
