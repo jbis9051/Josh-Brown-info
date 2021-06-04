@@ -19,21 +19,21 @@
         "@fortawesome/react-fontawesome": "^0.1.13",
         "bcrypt": "^5.0.0",
         "classnames": "^2.2.6",
-        "knex": "^0.21.13",
+        "knex": "^0.95.6",
         "mailgun-js": "^0.22.0",
         "next": "^10.0.3",
-        "nextjs-progressbar": "0.0.6",
+        "nextjs-progressbar": "0.0.10",
         "objection": "^2.2.3",
         "pg": "^8.5.1",
-        "react": "17.0.1",
-        "react-dom": "17.0.1"
+        "react": "17.0.2",
+        "react-dom": "17.0.2"
     },
     "devDependencies": {
-        "@types/bcrypt": "^3.0.0",
+        "@types/bcrypt": "^5.0.0",
         "@types/classnames": "^2.2.11",
         "@types/mailgun-js": "^0.22.11",
-        "@types/node": "^14.14.13",
-        "@types/react": "^16.14.2",
+        "@types/node": "^15.12.1",
+        "@types/react": "^17.0.9",
         "@typescript-eslint/eslint-plugin": "^4.26.0",
         "@typescript-eslint/parser": "^4.26.0",
         "eslint": "^7.27.0",
@@ -42,7 +42,7 @@
         "eslint-plugin-import": "^2.23.4",
         "prettier": "^2.3.0",
         "sqlite3": "^5.0.0",
-        "ts-node": "^9.1.1",
+        "ts-node": "^10.0.0",
         "typescript": "^4.1.3"
     }
 }
