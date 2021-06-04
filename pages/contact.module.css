@@ -15,7 +15,8 @@
     text-align: center;
 }
 
-.input, .textarea {
+.input,
+.textarea {
     font-size: 18px;
     border-radius: 0.25rem;
     border: 1px solid #242424;

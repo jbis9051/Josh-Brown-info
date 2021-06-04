@@ -28,7 +28,6 @@
     width: 100%;
 }
 
-
 .navBar {
     flex: 1;
     font-size: 18px;
@@ -65,7 +64,8 @@
     padding: 0 15px;
 }
 
-.navItemActive, .navBar li:hover {
+.navItemActive,
+.navBar li:hover {
     color: #d8d8d8;
 }
 

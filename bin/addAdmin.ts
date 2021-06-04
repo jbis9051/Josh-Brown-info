@@ -1,6 +1,6 @@
-import User from "../server/models/User";
-import bcrypt from "bcrypt";
-import {destroy} from "../server/models/setup";
+import bcrypt from 'bcrypt';
+import User from '../server/models/User';
+import { destroy } from '../server/models/setup';
 
 const username = process.env.USER;
 const password = process.env.PASSWORD;
@@ -10,4 +10,4 @@ if (!username || !password) {
 }
 
 const hash = bcrypt.hashSync(password, 10);
-User.query().insert({username, password: hash}).then(destroy);
+User.query().insert({ username, password: hash }).then(destroy);

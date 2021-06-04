@@ -2,7 +2,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     height: 100%;
@@ -43,8 +44,5 @@ a {
 @font-face {
     font-family: GoboldBold;
     font-display: swap;
-    src: url("/assets/fonts/Gobold%20Bold.woff") format("woff");
+    src: url('/assets/fonts/Gobold%20Bold.woff') format('woff');
 }
-
-
-

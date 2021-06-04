@@ -1,13 +1,17 @@
 import './setup';
-import {Model} from "objection";
-import UserToken from "./UserToken";
+import { Model } from 'objection';
+import UserToken from './UserToken';
 
 export default class User extends Model {
     id!: number;
+
     username!: string;
+
     password!: string;
+
     created!: Date;
-    static tableName = 'users'
+
+    static tableName = 'users';
 
     static relationMappings = {
         tokens: {
@@ -16,7 +20,7 @@ export default class User extends Model {
             join: {
                 from: 'users.id',
                 to: 'tokens.user_id',
-            }
-        }
-    }
+            },
+        },
+    };
 }

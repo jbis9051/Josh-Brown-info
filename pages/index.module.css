@@ -36,7 +36,6 @@
     padding: 10px;
 }
 
-
 @media only screen and (max-width: 1000px) {
     .imageWrapper {
         height: 216px;
@@ -50,7 +49,6 @@
         font-size: 40px;
     }
 }
-
 
 @media only screen and (max-width: 350px) {
     .imageWrapper {
