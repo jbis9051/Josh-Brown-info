@@ -66,6 +66,22 @@
     text-align: center;
 }
 
+.socialWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 50px 0;
+    font-size: 30px;
+}
+
+.social {
+    margin: 0 10px;
+}
+
+.social:hover {
+    color: white;
+}
+
 @media only screen and (max-width: 600px) {
     .header {
         font-size: 40px;

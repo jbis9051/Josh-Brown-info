@@ -1,5 +1,12 @@
 import React, { FormEvent, useState } from 'react';
 import Head from 'next/head';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+    faDev,
+    faGithub,
+    faLinkedin,
+    faTwitter,
+} from '@fortawesome/free-brands-svg-icons';
 import styles from './contact.module.css';
 import Layout from '../components/main/Layout';
 import FormError from '../components/main/FormError';
@@ -156,6 +163,40 @@ export default function Contact() {
                             throw new Error('Unknown State');
                     }
                 })()}
+                <div className={styles.socialWrapper}>
+                    <a
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                        className={styles.social}
+                        href={'https://github.com/jbis9051'}
+                    >
+                        <FontAwesomeIcon icon={faGithub} />
+                    </a>
+                    <a
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                        className={styles.social}
+                        href={'https://twitter.com/jbis9051'}
+                    >
+                        <FontAwesomeIcon icon={faTwitter} />
+                    </a>
+                    <a
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                        className={styles.social}
+                        href={'https://www.linkedin.com/in/josh-b-89305916b/'}
+                    >
+                        <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                    <a
+                        target={'_blank'}
+                        rel={'noopener noreferrer'}
+                        className={styles.social}
+                        href={'https://dev.to/jbis9051'}
+                    >
+                        <FontAwesomeIcon icon={faDev} />
+                    </a>
+                </div>
             </div>
         </Layout>
     );
