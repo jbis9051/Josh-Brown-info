@@ -5,6 +5,18 @@
     align-items: center;
     flex-direction: column;
     overflow: auto;
+    opacity: 0;
+    animation: fadeIn ease 500ms forwards;
+    animation-delay: 200ms;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 .subContainer {
@@ -69,7 +81,7 @@
 .subText {
     font-size: 50px;
     text-align: center;
-    color: #d1d1d1;
+    color: #e5e5e5;
     margin: 50px 0 0;
     padding: 10px;
 }
@@ -101,4 +113,8 @@
         margin: 15px;
         font-size: 30px;
     }
+}
+
+.emphasize {
+    color: white;
 }

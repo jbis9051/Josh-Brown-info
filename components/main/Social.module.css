@@ -1,0 +1,15 @@
+.socialWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin: 50px 0;
+    font-size: 30px;
+}
+
+.social {
+    margin: 0 10px;
+}
+
+.social:hover {
+    color: white;
+}
