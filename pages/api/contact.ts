@@ -19,7 +19,7 @@ async function contact(req: NextApiRequest, res: NextApiResponse) {
     }
     const ip =
         (req.headers['x-forwarded-header'] as string | undefined) ||
-        req.connection.remoteAddress;
+        req.socket.remoteAddress;
     await ContactMessageService.addContactMessage(
         ip as string,
         req.body.name,
