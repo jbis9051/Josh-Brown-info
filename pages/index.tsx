@@ -2,6 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import styles from './index.module.css';
 import Layout from '../components/main/Layout';
+import Social from "../components/main/Social";
 
 export default function Home() {
     return (
@@ -23,6 +24,7 @@ export default function Home() {
                     <span className={styles.subText}>
                         Hello. I'm Josh, a student interested in cryptography.
                     </span>
+                    <Social/>
                 </div>
             </div>
         </Layout>

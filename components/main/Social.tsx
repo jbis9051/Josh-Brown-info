@@ -34,14 +34,6 @@ const Social: React.FunctionComponent = () => (
         >
             <FontAwesomeIcon icon={faLinkedin} />
         </a>
-        <a
-            target={'_blank'}
-            rel={'noopener noreferrer'}
-            className={styles.social}
-            href={'https://dev.to/jbis9051'}
-        >
-            <FontAwesomeIcon icon={faDev} />
-        </a>
     </div>
 );
 export default Social;

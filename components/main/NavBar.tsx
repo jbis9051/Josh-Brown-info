@@ -53,8 +53,6 @@ const NavBar: React.FunctionComponent = () => {
                             Resume
                         </a>
                     </li>
-                    <NavItem page={'/blog'}>Blog</NavItem>
-                    <NavItem page={'/contact'}>Contact</NavItem>
                 </ul>
             </nav>
         </div>
